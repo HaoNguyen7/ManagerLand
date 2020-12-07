@@ -110,6 +110,43 @@ go
 
 exec sp_TimNhaChoKhachHang 'Nha Ban', 100000, 2, 5, 2
 go
+
+--procedure xem yeu cau cau khach hang
+CREATE procedure [dbo].[sp_XemYeuCauKhachHang] 
+	@idKhachHang varchar(10) = NULL,
+	@tenKhachHang varchar(50) = NULL,
+	@idChiNhanh varchar(10) = NULL	
+as
+begin
+	declare @strQuery nvarchar(3000) --Đây là chuỗi chứa câu lệnh sql thực thi xem thông tin khách hàng, nó được gọi ở cuối exec sp_executesql
+	declare @paraList nvarchar(500)  --Là các argument đưa vào trong cái chuỗi @strQuery để lọc record, nó được thể hiện ở if.
+
+	--Các đối số này tương ứng với các đối số của procedure
+	set @paraList = '
+		@idKhachHang varchar(10),
+		@tenKhachHang varchar(50),    
+		@idChiNhanh varchar(10)'
+	--Cau lệnh thực thi
+	set @strQuery = N'select kh.*
+					from KHACHHANG kh
+					where (1=1)'
+	--Thêm điều kiện nếu tham số đưa vào từ Winform thỏa điều kiện khac rỗng, nếu không nhập gì thì bỏ qua điều kiện
+	if(@idKhachHang != N'')
+		set @strQuery = @strQuery + ' and kh.IDKH = @idKhachHang'  --Được thêm vào strQuery để thực thi lọc record
+	if(@tenKhachHang != N'')
+		set @strQuery = @strQuery + ' and kh.TENKH = @tenKhachHang'
+	if(@idChiNhanh != N'')
+		set @strQuery = @strQuery + ' and kh.IDCNHANH = @idChiNhanh'
+	--Thuc thi procedure
+	exec sp_executesql
+		@strQuery,
+		@paraList,
+		@idKhachHang,
+		@tenKhachHang,
+		@idChiNhanh		
+end
+GO
+
 --Nhap liệu
 --Chi nhánh -> CHủ nhà, loại nhà, -> Nhân viên -> Nhà -> Nhà thuê, Nhà bán, khách hàng, Thông tin đánh giá
 --[CHINHANH](

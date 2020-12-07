@@ -62,6 +62,9 @@ namespace ManageStore
             }
         }
 
-        
+        private void txbUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

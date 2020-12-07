@@ -12,20 +12,19 @@ namespace ManageStore.DAO
     {
         private static DataProvider instance;
 
-        private string connectionSTR = "Data Source=DESKTOP-AJ52EVR;Initial Catalog=ManagerLand;Integrated Security=True";
+        private string connectionSTR = @"Data Source=DESKTOP-4ATVFV8\MSSQLSERVER01;Initial Catalog=QLNHADAT;Integrated Security=True";
 
         public static DataProvider Instance { 
             get { if (instance == null) instance = new DataProvider();return DataProvider.instance; }
             private set { DataProvider.instance = value; }
         }
 
-        public DataTable ExecuteQuery(string query, object[] parameter =null)
+        public DataTable ExecuteQuery(string query, object[] parameter =null) //Truy van du lieu tu data base
         {
             DataTable data = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            using (SqlConnection connection = new SqlConnection(connectionSTR)) //Ket noi nen de trong try catch
             {
-
 
                 connection.Open();
 
@@ -44,7 +43,6 @@ namespace ManageStore.DAO
                     }
                 }
                 
-
 
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 

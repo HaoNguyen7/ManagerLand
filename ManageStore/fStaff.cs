@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManageStore.DAO;
+
 
 namespace ManageStore
 {
@@ -39,7 +41,28 @@ namespace ManageStore
 
         private void btnViewCategory_Click(object sender, EventArgs e)
         {
+            string query = "exec sp_TimNhaChoKhachHang";
+            //object[] parameter = {}
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            dtgvCategory.DataSource = data;
+        }
 
+        private void dtgvCustomerRequirments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dtgvCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnDisplayStaff_Click(object sender, EventArgs e)
+        {
+            string query = "exec sp_XemYeuCauKhachHang";
+            //object[] parameter = {}
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            dtgvCustomerRequirments.DataSource = data;
         }
     }
 }

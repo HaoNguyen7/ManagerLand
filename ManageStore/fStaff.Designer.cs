@@ -33,7 +33,7 @@ namespace ManageStore
             this.tpRequireStaff = new System.Windows.Forms.TabPage();
             this.btnDisplayStaff = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dtgvStaff = new System.Windows.Forms.DataGridView();
+            this.dtgvCustomerRequirments = new System.Windows.Forms.DataGridView();
             this.tpHouseStaff = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -94,6 +94,7 @@ namespace ManageStore
             this.panel67 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -113,11 +114,10 @@ namespace ManageStore
             this.label9 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpRequireStaff.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomerRequirments)).BeginInit();
             this.tpHouseStaff.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -186,24 +186,26 @@ namespace ManageStore
             this.btnDisplayStaff.TabIndex = 3;
             this.btnDisplayStaff.Text = "Xem";
             this.btnDisplayStaff.UseVisualStyleBackColor = true;
+            this.btnDisplayStaff.Click += new System.EventHandler(this.btnDisplayStaff_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dtgvStaff);
+            this.panel3.Controls.Add(this.dtgvCustomerRequirments);
             this.panel3.Location = new System.Drawing.Point(5, 6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1231, 514);
             this.panel3.TabIndex = 3;
             // 
-            // dtgvStaff
+            // dtgvCustomerRequirments
             // 
-            this.dtgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvStaff.Location = new System.Drawing.Point(4, 3);
-            this.dtgvStaff.Name = "dtgvStaff";
-            this.dtgvStaff.RowHeadersWidth = 51;
-            this.dtgvStaff.RowTemplate.Height = 24;
-            this.dtgvStaff.Size = new System.Drawing.Size(1224, 508);
-            this.dtgvStaff.TabIndex = 0;
+            this.dtgvCustomerRequirments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCustomerRequirments.Location = new System.Drawing.Point(4, 3);
+            this.dtgvCustomerRequirments.Name = "dtgvCustomerRequirments";
+            this.dtgvCustomerRequirments.RowHeadersWidth = 51;
+            this.dtgvCustomerRequirments.RowTemplate.Height = 24;
+            this.dtgvCustomerRequirments.Size = new System.Drawing.Size(919, 508);
+            this.dtgvCustomerRequirments.TabIndex = 0;
+            this.dtgvCustomerRequirments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCustomerRequirments_CellContentClick);
             // 
             // tpHouseStaff
             // 
@@ -548,6 +550,7 @@ namespace ManageStore
             this.dtgvCategory.RowTemplate.Height = 24;
             this.dtgvCategory.Size = new System.Drawing.Size(782, 566);
             this.dtgvCategory.TabIndex = 0;
+            this.dtgvCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCategory_CellContentClick);
             // 
             // tabPage2
             // 
@@ -741,6 +744,15 @@ namespace ManageStore
             this.tabPage1.Text = "Khách hàng";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(592, 13);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 55);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Quản lý";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(673, 14);
@@ -904,15 +916,6 @@ namespace ManageStore
             this.dataGridView1.Size = new System.Drawing.Size(738, 566);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(592, 13);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 55);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Quản lý";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // fStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -924,7 +927,7 @@ namespace ManageStore
             this.tabControl1.ResumeLayout(false);
             this.tpRequireStaff.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomerRequirments)).EndInit();
             this.tpHouseStaff.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -989,7 +992,7 @@ namespace ManageStore
         private System.Windows.Forms.TabPage tpRequireStaff;
         private System.Windows.Forms.Button btnDisplayStaff;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dtgvStaff;
+        private System.Windows.Forms.DataGridView dtgvCustomerRequirments;
         private System.Windows.Forms.TabPage tpHouseStaff;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel16;
