@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ManageStore.DAO
 {
@@ -116,6 +117,49 @@ namespace ManageStore.DAO
 
                 connection.Close();
 
+            }
+
+            return data;
+        }
+
+        //Ham xu ly 
+        public DataTable ExecuteParameterQuery(string query, object[] parameter = null) //Truy van du lieu tu data base
+        {
+            DataTable data = new DataTable();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionSTR))
+                {
+
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    if (parameter != null)
+                    {
+                        string[] listPara = query.Split(' ', ',');
+                        int i = 0;
+                        foreach (string item in listPara)
+                        {
+                            if (item.Contains('@'))
+                            {
+                                command.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
+                        }
+                    }
+
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                    adapter.Fill(data);
+
+                    connection.Close();
+
+                }
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
 
             return data;

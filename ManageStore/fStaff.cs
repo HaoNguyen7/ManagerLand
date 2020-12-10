@@ -42,7 +42,7 @@ namespace ManageStore
         private void btnViewCategory_Click(object sender, EventArgs e)
         {
             string query = "exec sp_TimNhaChoKhachHang";
-            //object[] parameter = {}
+           
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             dtgvCategory.DataSource = data;
         }
@@ -59,10 +59,29 @@ namespace ManageStore
 
         private void btnDisplayStaff_Click(object sender, EventArgs e)
         {
-            string query = "exec sp_XemYeuCauKhachHang";
-            //object[] parameter = {}
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            string query = "exec sp_XemYeuCauKhachHang @idKhachHang, @tenKhachHang, @idChiNhanh";
+            object[] parameter = { tBoxStaffID.Text, tBoxStaffName.Text, tBoxBranchName.Text}; //Phai chuyen ve Text moi xu ly duoc Query
+
+            DataTable data = DataProvider.Instance.ExecuteParameterQuery(query, parameter);
             dtgvCustomerRequirments.DataSource = data;
+        }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bTonSearch_Click(object sender, EventArgs e)
+        {
+            string query = "exec sp_TimNhaChoKhachHang @loaiNha, @gia, " +
+                "@loaiGia, @soLuongPhong, @loaiSoLuongPhong, " +
+                "@duongNha, @quanNha, @tpNha, @khuVucNha, @idChiNhanh";
+            object[] parameter = {lBoxHouseTypes.Text, tBoxCost.Text, 2, 
+                numericRoom.Value, 2, tBoxStreet.Text, tBoxDistrict.Text,
+                tBoxCity.Text, tBoxRegion.Text, tBoxBranchID.Text};
+
+            DataTable data = DataProvider.Instance.ExecuteParameterQuery(query, parameter);
+            dtgvCategory.DataSource = data;
         }
     }
 }
