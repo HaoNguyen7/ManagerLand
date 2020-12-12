@@ -8,7 +8,6 @@ alter procedure sp_TimNhaChoKhachHang
 	@gia money = NULL,
 	@loaiGia int = NULL, --1 la nho hon hoac bang, 2 la lon hon hoac bang
 	@soLuongPhong  int = NULL,
-	@loaiSoLuongPhong int = NULL,
 	@duongNha varchar(50) = NULL,
 	@quanNha varchar(50) = NULL,
 	@tpNha varchar(50) = NULL,
@@ -23,7 +22,6 @@ begin
 			@gia money,
 			@loaiGia int,
 			@soLuongPhong int,
-			@loaiSoLuongPhong int,
 			@duongNha varchar(50),
 			@quanNha varchar(50),
 			@tpNha varchar(50),
@@ -41,12 +39,7 @@ begin
 			else
 				set @strQuery = @strQuery + ' and nb.GIABAN >= @gia'
 		if(@soLuongPhong != N'')
-		begin
-			if(@loaiSoLuongPhong = 1)
-				set @strQuery = @strQuery + ' and n.SOLUONGNHA <= @soLuongPhong'
-			else
-				set @strQuery = @strQuery + ' and n.SOLUONGNHA >= @soLuongPhong'
-		end
+			set @strQuery = @strQuery + ' and n.SOLUONGNHA = @soLuongPhong'
 		if(@duongNha != N'')
 			set @strQuery = @strQuery + ' and n.DUONGNHA = @duongNha'
 		if(@quanNha != N'')
@@ -69,12 +62,7 @@ begin
 			else
 				set @strQuery = @strQuery + ' and nb.TIENTHUE >= @gia'
 		if(@soLuongPhong != N'')
-		begin
-			if(@loaiSoLuongPhong = 1)
-				set @strQuery = @strQuery + ' and n.SOLUONGNHA <= @soLuongPhong'
-			else
-				set @strQuery = @strQuery + ' and n.SOLUONGNHA >= @soLuongPhong'
-		end
+			set @strQuery = @strQuery + ' and n.SOLUONGNHA = @soLuongPhong'
 		if(@duongNha != N'')
 			set @strQuery = @strQuery + ' and n.DUONGNHA = @duongNha'
 		if(@quanNha != N'')
@@ -88,7 +76,9 @@ begin
 	end
 	else
 	begin
-		select * from NHA
+		select * from NHA n
+		where n.TINHTRANG != 1 and n.NGAYDANG < getdate() 
+		and (n.NGAYHETHANG is NULL or n.NGAYHETHANG > getdate())
 	end
 
 	exec sp_executesql @strQuery,
@@ -96,7 +86,6 @@ begin
 		@gia, --Doi so dua vao phai tuong ung voi paraList
 		@loaiGia,
 		@soLuongPhong,
-		@loaiSoLuongPhong,
 		@duongNha,
 		@quanNha,
 		@tpNha,
@@ -144,4 +133,4 @@ begin
 		@idChiNhanh		
 end
 GO
-exec sp_XemYeuCauKhachHang
+exec sp_XemYeuCauKhachHang NULL, NULL, N'Tp Ha Noi'
