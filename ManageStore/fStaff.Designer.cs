@@ -31,8 +31,15 @@ namespace ManageStore
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpRequireStaff = new System.Windows.Forms.TabPage();
-            this.btnDisplayStaff = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.btnDisplayStaff = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tBoxBranchName = new System.Windows.Forms.TextBox();
+            this.tBoxStaffName = new System.Windows.Forms.TextBox();
+            this.tBoxStaffID = new System.Windows.Forms.TextBox();
             this.dtgvCustomerRequirments = new System.Windows.Forms.DataGridView();
             this.tpHouseStaff = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -47,6 +54,9 @@ namespace ManageStore
             this.label2 = new System.Windows.Forms.Label();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.numericRoom = new System.Windows.Forms.NumericUpDown();
             this.bTonSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tBoxCost = new System.Windows.Forms.TextBox();
@@ -67,6 +77,7 @@ namespace ManageStore
             this.tBoxBranchID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.lBoxHouseTypes = new System.Windows.Forms.ListBox();
             this.labelNha = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnViewCategory = new System.Windows.Forms.Button();
@@ -113,20 +124,13 @@ namespace ManageStore
             this.label9 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.tBoxStaffID = new System.Windows.Forms.TextBox();
-            this.tBoxStaffName = new System.Windows.Forms.TextBox();
-            this.tBoxBranchName = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.numericRoom = new System.Windows.Forms.NumericUpDown();
-            this.lBoxHouseTypes = new System.Windows.Forms.ListBox();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lBoxCostTypes = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tpRequireStaff.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomerRequirments)).BeginInit();
             this.tpHouseStaff.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -134,6 +138,8 @@ namespace ManageStore
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRoom)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel41.SuspendLayout();
             this.panel37.SuspendLayout();
@@ -162,9 +168,7 @@ namespace ManageStore
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel14.SuspendLayout();
-            this.panel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRoom)).BeginInit();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -185,10 +189,34 @@ namespace ManageStore
             this.tpRequireStaff.Location = new System.Drawing.Point(4, 25);
             this.tpRequireStaff.Name = "tpRequireStaff";
             this.tpRequireStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRequireStaff.Size = new System.Drawing.Size(1242, 654);
+            this.tpRequireStaff.Size = new System.Drawing.Size(1242, 755);
             this.tpRequireStaff.TabIndex = 0;
             this.tpRequireStaff.Text = "Yêu cầu";
             this.tpRequireStaff.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel14);
+            this.panel3.Controls.Add(this.dtgvCustomerRequirments);
+            this.panel3.Location = new System.Drawing.Point(5, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1231, 479);
+            this.panel3.TabIndex = 3;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.btnDisplayStaff);
+            this.panel14.Controls.Add(this.label12);
+            this.panel14.Controls.Add(this.label11);
+            this.panel14.Controls.Add(this.label10);
+            this.panel14.Controls.Add(this.tBoxBranchName);
+            this.panel14.Controls.Add(this.tBoxStaffName);
+            this.panel14.Controls.Add(this.tBoxStaffID);
+            this.panel14.Location = new System.Drawing.Point(926, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(302, 468);
+            this.panel14.TabIndex = 1;
+            this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
             // 
             // btnDisplayStaff
             // 
@@ -200,14 +228,53 @@ namespace ManageStore
             this.btnDisplayStaff.UseVisualStyleBackColor = true;
             this.btnDisplayStaff.Click += new System.EventHandler(this.btnDisplayStaff_Click);
             // 
-            // panel3
+            // label12
             // 
-            this.panel3.Controls.Add(this.panel14);
-            this.panel3.Controls.Add(this.dtgvCustomerRequirments);
-            this.panel3.Location = new System.Drawing.Point(5, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1231, 479);
-            this.panel3.TabIndex = 3;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(4, 134);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 17);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "IDChiNhanh";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 83);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 17);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "TenKhachHang";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(4, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 17);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "IDKhachHang";
+            // 
+            // tBoxBranchName
+            // 
+            this.tBoxBranchName.Location = new System.Drawing.Point(137, 129);
+            this.tBoxBranchName.Name = "tBoxBranchName";
+            this.tBoxBranchName.Size = new System.Drawing.Size(162, 22);
+            this.tBoxBranchName.TabIndex = 2;
+            // 
+            // tBoxStaffName
+            // 
+            this.tBoxStaffName.Location = new System.Drawing.Point(137, 78);
+            this.tBoxStaffName.Name = "tBoxStaffName";
+            this.tBoxStaffName.Size = new System.Drawing.Size(162, 22);
+            this.tBoxStaffName.TabIndex = 1;
+            // 
+            // tBoxStaffID
+            // 
+            this.tBoxStaffID.Location = new System.Drawing.Point(137, 33);
+            this.tBoxStaffID.Name = "tBoxStaffID";
+            this.tBoxStaffID.Size = new System.Drawing.Size(162, 22);
+            this.tBoxStaffID.TabIndex = 0;
             // 
             // dtgvCustomerRequirments
             // 
@@ -240,9 +307,9 @@ namespace ManageStore
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.btnEditCategory);
-            this.panel2.Location = new System.Drawing.Point(801, 569);
+            this.panel2.Location = new System.Drawing.Point(801, 557);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(438, 183);
+            this.panel2.Size = new System.Drawing.Size(438, 195);
             this.panel2.TabIndex = 6;
             // 
             // panel6
@@ -256,7 +323,7 @@ namespace ManageStore
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(127, 8);
+            this.textBox5.Location = new System.Drawing.Point(118, 11);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(291, 22);
             this.textBox5.TabIndex = 1;
@@ -264,7 +331,7 @@ namespace ManageStore
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 11);
+            this.label4.Location = new System.Drawing.Point(3, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 0;
@@ -281,7 +348,7 @@ namespace ManageStore
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(127, 8);
+            this.textBox4.Location = new System.Drawing.Point(119, 8);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(291, 22);
             this.textBox4.TabIndex = 1;
@@ -289,7 +356,7 @@ namespace ManageStore
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 11);
+            this.label3.Location = new System.Drawing.Point(4, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 0;
@@ -306,7 +373,7 @@ namespace ManageStore
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 8);
+            this.textBox2.Location = new System.Drawing.Point(119, 8);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(291, 22);
             this.textBox2.TabIndex = 1;
@@ -314,7 +381,7 @@ namespace ManageStore
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 11);
+            this.label2.Location = new System.Drawing.Point(4, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 17);
             this.label2.TabIndex = 0;
@@ -322,7 +389,7 @@ namespace ManageStore
             // 
             // btnEditCategory
             // 
-            this.btnEditCategory.Location = new System.Drawing.Point(360, 128);
+            this.btnEditCategory.Location = new System.Drawing.Point(357, 137);
             this.btnEditCategory.Name = "btnEditCategory";
             this.btnEditCategory.Size = new System.Drawing.Size(75, 55);
             this.btnEditCategory.TabIndex = 2;
@@ -331,6 +398,7 @@ namespace ManageStore
             // 
             // panel15
             // 
+            this.panel15.Controls.Add(this.panel19);
             this.panel15.Controls.Add(this.panel20);
             this.panel15.Controls.Add(this.bTonSearch);
             this.panel15.Controls.Add(this.panel1);
@@ -340,14 +408,40 @@ namespace ManageStore
             this.panel15.Controls.Add(this.panel39);
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Controls.Add(this.panel35);
-            this.panel15.Location = new System.Drawing.Point(801, 11);
+            this.panel15.Location = new System.Drawing.Point(801, 75);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(438, 531);
+            this.panel15.Size = new System.Drawing.Size(438, 476);
             this.panel15.TabIndex = 4;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.label14);
+            this.panel20.Controls.Add(this.numericRoom);
+            this.panel20.Location = new System.Drawing.Point(3, 142);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(432, 40);
+            this.panel20.TabIndex = 28;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 15);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(107, 16);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "So Luong Phong";
+            // 
+            // numericRoom
+            // 
+            this.numericRoom.Location = new System.Drawing.Point(120, 9);
+            this.numericRoom.Name = "numericRoom";
+            this.numericRoom.Size = new System.Drawing.Size(290, 22);
+            this.numericRoom.TabIndex = 29;
             // 
             // bTonSearch
             // 
-            this.bTonSearch.Location = new System.Drawing.Point(360, 467);
+            this.bTonSearch.Location = new System.Drawing.Point(357, 418);
             this.bTonSearch.Name = "bTonSearch";
             this.bTonSearch.Size = new System.Drawing.Size(75, 55);
             this.bTonSearch.TabIndex = 3;
@@ -361,20 +455,20 @@ namespace ManageStore
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 40);
+            this.panel1.Size = new System.Drawing.Size(429, 40);
             this.panel1.TabIndex = 22;
             // 
             // tBoxCost
             // 
-            this.tBoxCost.Location = new System.Drawing.Point(128, 8);
+            this.tBoxCost.Location = new System.Drawing.Point(119, 11);
             this.tBoxCost.Name = "tBoxCost";
-            this.tBoxCost.Size = new System.Drawing.Size(294, 22);
+            this.tBoxCost.Size = new System.Drawing.Size(291, 22);
             this.tBoxCost.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 11);
+            this.label1.Location = new System.Drawing.Point(4, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 17);
             this.label1.TabIndex = 0;
@@ -384,16 +478,16 @@ namespace ManageStore
             // 
             this.panel41.Controls.Add(this.tBoxRegion);
             this.panel41.Controls.Add(this.label27);
-            this.panel41.Location = new System.Drawing.Point(6, 421);
+            this.panel41.Location = new System.Drawing.Point(3, 372);
             this.panel41.Name = "panel41";
             this.panel41.Size = new System.Drawing.Size(432, 40);
             this.panel41.TabIndex = 24;
             // 
             // tBoxRegion
             // 
-            this.tBoxRegion.Location = new System.Drawing.Point(124, 8);
+            this.tBoxRegion.Location = new System.Drawing.Point(120, 8);
             this.tBoxRegion.Name = "tBoxRegion";
-            this.tBoxRegion.Size = new System.Drawing.Size(302, 22);
+            this.tBoxRegion.Size = new System.Drawing.Size(290, 22);
             this.tBoxRegion.TabIndex = 1;
             // 
             // label27
@@ -409,16 +503,16 @@ namespace ManageStore
             // 
             this.panel37.Controls.Add(this.tBoxCity);
             this.panel37.Controls.Add(this.label23);
-            this.panel37.Location = new System.Drawing.Point(6, 375);
+            this.panel37.Location = new System.Drawing.Point(3, 326);
             this.panel37.Name = "panel37";
             this.panel37.Size = new System.Drawing.Size(432, 40);
             this.panel37.TabIndex = 23;
             // 
             // tBoxCity
             // 
-            this.tBoxCity.Location = new System.Drawing.Point(124, 8);
+            this.tBoxCity.Location = new System.Drawing.Point(120, 8);
             this.tBoxCity.Name = "tBoxCity";
-            this.tBoxCity.Size = new System.Drawing.Size(302, 22);
+            this.tBoxCity.Size = new System.Drawing.Size(290, 22);
             this.tBoxCity.TabIndex = 1;
             // 
             // label23
@@ -434,16 +528,16 @@ namespace ManageStore
             // 
             this.panel38.Controls.Add(this.tBoxDistrict);
             this.panel38.Controls.Add(this.label24);
-            this.panel38.Location = new System.Drawing.Point(3, 329);
+            this.panel38.Location = new System.Drawing.Point(3, 280);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(431, 40);
+            this.panel38.Size = new System.Drawing.Size(433, 40);
             this.panel38.TabIndex = 25;
             // 
             // tBoxDistrict
             // 
-            this.tBoxDistrict.Location = new System.Drawing.Point(123, 6);
+            this.tBoxDistrict.Location = new System.Drawing.Point(120, 8);
             this.tBoxDistrict.Name = "tBoxDistrict";
-            this.tBoxDistrict.Size = new System.Drawing.Size(302, 22);
+            this.tBoxDistrict.Size = new System.Drawing.Size(290, 22);
             this.tBoxDistrict.TabIndex = 1;
             // 
             // label24
@@ -459,16 +553,16 @@ namespace ManageStore
             // 
             this.panel39.Controls.Add(this.tBoxStreet);
             this.panel39.Controls.Add(this.label25);
-            this.panel39.Location = new System.Drawing.Point(3, 283);
+            this.panel39.Location = new System.Drawing.Point(3, 234);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(432, 40);
+            this.panel39.Size = new System.Drawing.Size(433, 40);
             this.panel39.TabIndex = 21;
             // 
             // tBoxStreet
             // 
-            this.tBoxStreet.Location = new System.Drawing.Point(124, 8);
+            this.tBoxStreet.Location = new System.Drawing.Point(119, 8);
             this.tBoxStreet.Name = "tBoxStreet";
-            this.tBoxStreet.Size = new System.Drawing.Size(302, 22);
+            this.tBoxStreet.Size = new System.Drawing.Size(291, 22);
             this.tBoxStreet.TabIndex = 1;
             // 
             // label25
@@ -484,16 +578,16 @@ namespace ManageStore
             // 
             this.panel16.Controls.Add(this.tBoxBranchID);
             this.panel16.Controls.Add(this.label7);
-            this.panel16.Location = new System.Drawing.Point(4, 237);
+            this.panel16.Location = new System.Drawing.Point(3, 188);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(432, 40);
             this.panel16.TabIndex = 6;
             // 
             // tBoxBranchID
             // 
-            this.tBoxBranchID.Location = new System.Drawing.Point(124, 11);
+            this.tBoxBranchID.Location = new System.Drawing.Point(120, 11);
             this.tBoxBranchID.Name = "tBoxBranchID";
-            this.tBoxBranchID.Size = new System.Drawing.Size(302, 22);
+            this.tBoxBranchID.Size = new System.Drawing.Size(290, 22);
             this.tBoxBranchID.TabIndex = 1;
             // 
             // label7
@@ -511,13 +605,25 @@ namespace ManageStore
             this.panel35.Controls.Add(this.labelNha);
             this.panel35.Location = new System.Drawing.Point(3, 4);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(432, 40);
+            this.panel35.Size = new System.Drawing.Size(429, 40);
             this.panel35.TabIndex = 1;
+            // 
+            // lBoxHouseTypes
+            // 
+            this.lBoxHouseTypes.FormattingEnabled = true;
+            this.lBoxHouseTypes.ItemHeight = 16;
+            this.lBoxHouseTypes.Items.AddRange(new object[] {
+            "Nha Ban",
+            "Nha Thue"});
+            this.lBoxHouseTypes.Location = new System.Drawing.Point(119, 8);
+            this.lBoxHouseTypes.Name = "lBoxHouseTypes";
+            this.lBoxHouseTypes.Size = new System.Drawing.Size(291, 20);
+            this.lBoxHouseTypes.TabIndex = 1;
             // 
             // labelNha
             // 
             this.labelNha.AutoSize = true;
-            this.labelNha.Location = new System.Drawing.Point(7, 8);
+            this.labelNha.Location = new System.Drawing.Point(3, 11);
             this.labelNha.Name = "labelNha";
             this.labelNha.Size = new System.Drawing.Size(69, 17);
             this.labelNha.TabIndex = 0;
@@ -569,7 +675,7 @@ namespace ManageStore
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1242, 654);
+            this.tabPage2.Size = new System.Drawing.Size(1242, 755);
             this.tabPage2.TabIndex = 7;
             this.tabPage2.Text = "Chủ nhà";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -747,7 +853,7 @@ namespace ManageStore
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1242, 654);
+            this.tabPage1.Size = new System.Drawing.Size(1242, 755);
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "Khách hàng";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -924,118 +1030,49 @@ namespace ManageStore
             this.dataGridView1.Size = new System.Drawing.Size(738, 566);
             this.dataGridView1.TabIndex = 0;
             // 
-            // panel14
+            // panel19
             // 
-            this.panel14.Controls.Add(this.btnDisplayStaff);
-            this.panel14.Controls.Add(this.label12);
-            this.panel14.Controls.Add(this.label11);
-            this.panel14.Controls.Add(this.label10);
-            this.panel14.Controls.Add(this.tBoxBranchName);
-            this.panel14.Controls.Add(this.tBoxStaffName);
-            this.panel14.Controls.Add(this.tBoxStaffID);
-            this.panel14.Location = new System.Drawing.Point(926, 3);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(302, 468);
-            this.panel14.TabIndex = 1;
-            this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
+            this.panel19.Controls.Add(this.lBoxCostTypes);
+            this.panel19.Controls.Add(this.label13);
+            this.panel19.Location = new System.Drawing.Point(3, 96);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(432, 40);
+            this.panel19.TabIndex = 29;
             // 
-            // tBoxStaffID
+            // label13
             // 
-            this.tBoxStaffID.Location = new System.Drawing.Point(137, 33);
-            this.tBoxStaffID.Name = "tBoxStaffID";
-            this.tBoxStaffID.Size = new System.Drawing.Size(162, 22);
-            this.tBoxStaffID.TabIndex = 0;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(4, 11);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(58, 17);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Loại giá";
             // 
-            // tBoxStaffName
+            // lBoxCostTypes
             // 
-            this.tBoxStaffName.Location = new System.Drawing.Point(137, 78);
-            this.tBoxStaffName.Name = "tBoxStaffName";
-            this.tBoxStaffName.Size = new System.Drawing.Size(162, 22);
-            this.tBoxStaffName.TabIndex = 1;
-            // 
-            // tBoxBranchName
-            // 
-            this.tBoxBranchName.Location = new System.Drawing.Point(137, 129);
-            this.tBoxBranchName.Name = "tBoxBranchName";
-            this.tBoxBranchName.Size = new System.Drawing.Size(162, 22);
-            this.tBoxBranchName.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 17);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "IDKhachHang";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 83);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 17);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "TenKhachHang";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 134);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 17);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "IDChiNhanh";
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.label14);
-            this.panel20.Controls.Add(this.numericRoom);
-            this.panel20.Location = new System.Drawing.Point(3, 96);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(432, 40);
-            this.panel20.TabIndex = 28;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(6, 15);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 16);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "So Luong Phong";
-            // 
-            // numericRoom
-            // 
-            this.numericRoom.Location = new System.Drawing.Point(127, 9);
-            this.numericRoom.Name = "numericRoom";
-            this.numericRoom.Size = new System.Drawing.Size(295, 22);
-            this.numericRoom.TabIndex = 29;
-            // 
-            // lBoxHouseTypes
-            // 
-            this.lBoxHouseTypes.FormattingEnabled = true;
-            this.lBoxHouseTypes.ItemHeight = 16;
-            this.lBoxHouseTypes.Items.AddRange(new object[] {
-            "Nha Ban",
-            "Nha Thue"});
-            this.lBoxHouseTypes.Location = new System.Drawing.Point(125, 4);
-            this.lBoxHouseTypes.Name = "lBoxHouseTypes";
-            this.lBoxHouseTypes.Size = new System.Drawing.Size(297, 20);
-            this.lBoxHouseTypes.TabIndex = 1;
+            this.lBoxCostTypes.FormattingEnabled = true;
+            this.lBoxCostTypes.ItemHeight = 16;
+            this.lBoxCostTypes.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.lBoxCostTypes.Location = new System.Drawing.Point(120, 11);
+            this.lBoxCostTypes.Name = "lBoxCostTypes";
+            this.lBoxCostTypes.Size = new System.Drawing.Size(290, 20);
+            this.lBoxCostTypes.TabIndex = 1;
             // 
             // fStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1321, 809);
+            this.ClientSize = new System.Drawing.Size(1259, 523);
             this.Controls.Add(this.tabControl1);
             this.Name = "fStaff";
             this.Text = "Nhân viên";
             this.tabControl1.ResumeLayout(false);
             this.tpRequireStaff.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomerRequirments)).EndInit();
             this.tpHouseStaff.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -1046,6 +1083,9 @@ namespace ManageStore
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel15.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRoom)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel41.ResumeLayout(false);
@@ -1091,11 +1131,8 @@ namespace ManageStore
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRoom)).EndInit();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1197,5 +1234,8 @@ namespace ManageStore
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown numericRoom;
         private System.Windows.Forms.ListBox lBoxHouseTypes;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.ListBox lBoxCostTypes;
+        private System.Windows.Forms.Label label13;
     }
 }

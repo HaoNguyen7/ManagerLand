@@ -29,16 +29,17 @@ namespace ManageStore
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabOwnerHouse = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnDisplayStaff = new System.Windows.Forms.Button();
-            this.btnDeleteStaff = new System.Windows.Forms.Button();
-            this.btnEditStaff = new System.Windows.Forms.Button();
+            this.btnDisplayAsksCustomer = new System.Windows.Forms.Button();
+            this.btnDeleteAskCustomer = new System.Windows.Forms.Button();
+            this.btnEditAsksCustomer = new System.Windows.Forms.Button();
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dtgvStaff = new System.Windows.Forms.DataGridView();
+            this.dtgvAsksCustomer = new System.Windows.Forms.DataGridView();
             this.tpStaff = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -47,15 +48,6 @@ namespace ManageStore
             this.panel20 = new System.Windows.Forms.Panel();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label28 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -63,42 +55,32 @@ namespace ManageStore
             this.button5 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel41 = new System.Windows.Forms.Panel();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.panel37 = new System.Windows.Forms.Panel();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.panel38 = new System.Windows.Forms.Panel();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.panel39 = new System.Windows.Forms.Panel();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lBoxHouseTypes = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tBoxAsksCustomer = new System.Windows.Forms.TextBox();
+            this.qLNHADATDataSet = new ManageStore.QLNHADATDataSet();
+            this.lOAINHABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lOAINHATableAdapter = new ManageStore.QLNHADATDataSetTableAdapters.LOAINHATableAdapter();
             this.tabOwnerHouse.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvAsksCustomer)).BeginInit();
             this.tpStaff.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel20.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel25.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel41.SuspendLayout();
-            this.panel37.SuspendLayout();
-            this.panel38.SuspendLayout();
-            this.panel39.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNHADATDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOAINHABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabOwnerHouse
@@ -126,11 +108,8 @@ namespace ManageStore
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel1);
-            this.panel5.Controls.Add(this.panel41);
-            this.panel5.Controls.Add(this.panel37);
-            this.panel5.Controls.Add(this.panel38);
-            this.panel5.Controls.Add(this.panel39);
             this.panel5.Location = new System.Drawing.Point(768, 74);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(438, 398);
@@ -138,41 +117,41 @@ namespace ManageStore
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btnDisplayStaff);
-            this.panel4.Controls.Add(this.btnDeleteStaff);
-            this.panel4.Controls.Add(this.btnEditStaff);
+            this.panel4.Controls.Add(this.btnDisplayAsksCustomer);
+            this.panel4.Controls.Add(this.btnDeleteAskCustomer);
+            this.panel4.Controls.Add(this.btnEditAsksCustomer);
             this.panel4.Controls.Add(this.btnAddStaff);
             this.panel4.Location = new System.Drawing.Point(6, 6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(326, 62);
             this.panel4.TabIndex = 4;
             // 
-            // btnDisplayStaff
+            // btnDisplayAsksCustomer
             // 
-            this.btnDisplayStaff.Location = new System.Drawing.Point(247, 3);
-            this.btnDisplayStaff.Name = "btnDisplayStaff";
-            this.btnDisplayStaff.Size = new System.Drawing.Size(75, 55);
-            this.btnDisplayStaff.TabIndex = 3;
-            this.btnDisplayStaff.Text = "Xem";
-            this.btnDisplayStaff.UseVisualStyleBackColor = true;
+            this.btnDisplayAsksCustomer.Location = new System.Drawing.Point(247, 3);
+            this.btnDisplayAsksCustomer.Name = "btnDisplayAsksCustomer";
+            this.btnDisplayAsksCustomer.Size = new System.Drawing.Size(75, 55);
+            this.btnDisplayAsksCustomer.TabIndex = 3;
+            this.btnDisplayAsksCustomer.Text = "Xem";
+            this.btnDisplayAsksCustomer.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteStaff
+            // btnDeleteAskCustomer
             // 
-            this.btnDeleteStaff.Location = new System.Drawing.Point(166, 4);
-            this.btnDeleteStaff.Name = "btnDeleteStaff";
-            this.btnDeleteStaff.Size = new System.Drawing.Size(75, 55);
-            this.btnDeleteStaff.TabIndex = 2;
-            this.btnDeleteStaff.Text = "Xóa";
-            this.btnDeleteStaff.UseVisualStyleBackColor = true;
+            this.btnDeleteAskCustomer.Location = new System.Drawing.Point(166, 4);
+            this.btnDeleteAskCustomer.Name = "btnDeleteAskCustomer";
+            this.btnDeleteAskCustomer.Size = new System.Drawing.Size(75, 55);
+            this.btnDeleteAskCustomer.TabIndex = 2;
+            this.btnDeleteAskCustomer.Text = "Xóa";
+            this.btnDeleteAskCustomer.UseVisualStyleBackColor = true;
             // 
-            // btnEditStaff
+            // btnEditAsksCustomer
             // 
-            this.btnEditStaff.Location = new System.Drawing.Point(85, 4);
-            this.btnEditStaff.Name = "btnEditStaff";
-            this.btnEditStaff.Size = new System.Drawing.Size(75, 55);
-            this.btnEditStaff.TabIndex = 1;
-            this.btnEditStaff.Text = "Sửa";
-            this.btnEditStaff.UseVisualStyleBackColor = true;
+            this.btnEditAsksCustomer.Location = new System.Drawing.Point(85, 4);
+            this.btnEditAsksCustomer.Name = "btnEditAsksCustomer";
+            this.btnEditAsksCustomer.Size = new System.Drawing.Size(75, 55);
+            this.btnEditAsksCustomer.TabIndex = 1;
+            this.btnEditAsksCustomer.Text = "Sửa";
+            this.btnEditAsksCustomer.UseVisualStyleBackColor = true;
             // 
             // btnAddStaff
             // 
@@ -182,25 +161,26 @@ namespace ManageStore
             this.btnAddStaff.TabIndex = 0;
             this.btnAddStaff.Text = "Thêm";
             this.btnAddStaff.UseVisualStyleBackColor = true;
+            this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dtgvStaff);
+            this.panel3.Controls.Add(this.dtgvAsksCustomer);
             this.panel3.Location = new System.Drawing.Point(6, 74);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(745, 398);
             this.panel3.TabIndex = 3;
             // 
-            // dtgvStaff
+            // dtgvAsksCustomer
             // 
-            this.dtgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvStaff.ColumnHeadersVisible = false;
-            this.dtgvStaff.Location = new System.Drawing.Point(4, 4);
-            this.dtgvStaff.Name = "dtgvStaff";
-            this.dtgvStaff.RowHeadersWidth = 51;
-            this.dtgvStaff.RowTemplate.Height = 24;
-            this.dtgvStaff.Size = new System.Drawing.Size(738, 442);
-            this.dtgvStaff.TabIndex = 0;
+            this.dtgvAsksCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvAsksCustomer.ColumnHeadersVisible = false;
+            this.dtgvAsksCustomer.Location = new System.Drawing.Point(4, 4);
+            this.dtgvAsksCustomer.Name = "dtgvAsksCustomer";
+            this.dtgvAsksCustomer.RowHeadersWidth = 51;
+            this.dtgvAsksCustomer.RowTemplate.Height = 24;
+            this.dtgvAsksCustomer.Size = new System.Drawing.Size(738, 391);
+            this.dtgvAsksCustomer.TabIndex = 0;
             // 
             // tpStaff
             // 
@@ -219,9 +199,6 @@ namespace ManageStore
             // 
             this.panel11.Controls.Add(this.panel13);
             this.panel11.Controls.Add(this.panel20);
-            this.panel11.Controls.Add(this.panel22);
-            this.panel11.Controls.Add(this.panel23);
-            this.panel11.Controls.Add(this.panel25);
             this.panel11.Location = new System.Drawing.Point(757, 75);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(438, 370);
@@ -231,9 +208,9 @@ namespace ManageStore
             // 
             this.panel13.Controls.Add(this.textBox15);
             this.panel13.Controls.Add(this.label5);
-            this.panel13.Location = new System.Drawing.Point(3, 56);
+            this.panel13.Location = new System.Drawing.Point(6, 4);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(432, 40);
+            this.panel13.Size = new System.Drawing.Size(429, 40);
             this.panel13.TabIndex = 6;
             // 
             // textBox15
@@ -256,9 +233,9 @@ namespace ManageStore
             // 
             this.panel20.Controls.Add(this.textBox18);
             this.panel20.Controls.Add(this.label10);
-            this.panel20.Location = new System.Drawing.Point(3, 194);
+            this.panel20.Location = new System.Drawing.Point(6, 50);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(432, 40);
+            this.panel20.Size = new System.Drawing.Size(429, 40);
             this.panel20.TabIndex = 5;
             // 
             // textBox18
@@ -276,81 +253,6 @@ namespace ManageStore
             this.label10.Size = new System.Drawing.Size(68, 17);
             this.label10.TabIndex = 0;
             this.label10.Text = "Nhận xét:";
-            // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.dateTimePicker2);
-            this.panel22.Controls.Add(this.label28);
-            this.panel22.Location = new System.Drawing.Point(3, 148);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(432, 40);
-            this.panel22.TabIndex = 4;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(127, 11);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(290, 22);
-            this.dateTimePicker2.TabIndex = 1;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(18, 11);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(103, 17);
-            this.label28.TabIndex = 0;
-            this.label28.Text = "Ngày nhận xét:";
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.textBox20);
-            this.panel23.Controls.Add(this.label29);
-            this.panel23.Location = new System.Drawing.Point(4, 102);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(432, 40);
-            this.panel23.TabIndex = 2;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(127, 8);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(291, 22);
-            this.textBox20.TabIndex = 1;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(18, 11);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(85, 17);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "ID Nhận xét:";
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.textBox21);
-            this.panel25.Controls.Add(this.label30);
-            this.panel25.Location = new System.Drawing.Point(3, 10);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(432, 40);
-            this.panel25.TabIndex = 1;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(127, 8);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(291, 22);
-            this.textBox21.TabIndex = 1;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(18, 11);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(39, 17);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "STT:";
             // 
             // panel26
             // 
@@ -417,130 +319,75 @@ namespace ManageStore
             this.dataGridView1.Size = new System.Drawing.Size(738, 359);
             this.dataGridView1.TabIndex = 0;
             // 
-            // panel41
-            // 
-            this.panel41.Controls.Add(this.textBox14);
-            this.panel41.Controls.Add(this.label27);
-            this.panel41.Location = new System.Drawing.Point(3, 190);
-            this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(432, 40);
-            this.panel41.TabIndex = 19;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(127, 8);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(291, 22);
-            this.textBox14.TabIndex = 1;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(18, 11);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(63, 17);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Khu vực:";
-            // 
-            // panel37
-            // 
-            this.panel37.Controls.Add(this.textBox10);
-            this.panel37.Controls.Add(this.label23);
-            this.panel37.Location = new System.Drawing.Point(3, 144);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(432, 40);
-            this.panel37.TabIndex = 18;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(127, 8);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(291, 22);
-            this.textBox10.TabIndex = 1;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(18, 11);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(81, 17);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Thành phố:";
-            // 
-            // panel38
-            // 
-            this.panel38.Controls.Add(this.textBox11);
-            this.panel38.Controls.Add(this.label24);
-            this.panel38.Location = new System.Drawing.Point(4, 98);
-            this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(431, 40);
-            this.panel38.TabIndex = 20;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(127, 8);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(291, 22);
-            this.textBox11.TabIndex = 1;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(18, 11);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(47, 17);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Quận:";
-            // 
-            // panel39
-            // 
-            this.panel39.Controls.Add(this.textBox12);
-            this.panel39.Controls.Add(this.label25);
-            this.panel39.Location = new System.Drawing.Point(3, 52);
-            this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(432, 40);
-            this.panel39.TabIndex = 17;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(127, 8);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(291, 22);
-            this.textBox12.TabIndex = 1;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(18, 11);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(54, 17);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Đường:";
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 6);
+            this.panel1.Controls.Add(this.lBoxHouseTypes);
+            this.panel1.Location = new System.Drawing.Point(3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 40);
-            this.panel1.TabIndex = 18;
+            this.panel1.Size = new System.Drawing.Size(432, 41);
+            this.panel1.TabIndex = 0;
             // 
-            // textBox1
+            // lBoxHouseTypes
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 22);
-            this.textBox1.TabIndex = 1;
+            this.lBoxHouseTypes.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.lOAINHABindingSource, "TENLOAINHA", true));
+            this.lBoxHouseTypes.DataSource = this.lOAINHABindingSource;
+            this.lBoxHouseTypes.DisplayMember = "TENLOAINHA";
+            this.lBoxHouseTypes.FormattingEnabled = true;
+            this.lBoxHouseTypes.ItemHeight = 16;
+            this.lBoxHouseTypes.Location = new System.Drawing.Point(169, 2);
+            this.lBoxHouseTypes.Name = "lBoxHouseTypes";
+            this.lBoxHouseTypes.Size = new System.Drawing.Size(260, 36);
+            this.lBoxHouseTypes.TabIndex = 0;
+            this.lBoxHouseTypes.ValueMember = "TENLOAINHA";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 11);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Giá:";
+            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Loại Nhà:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tBoxAsksCustomer);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(3, 51);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(432, 42);
+            this.panel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Yêu cầu:";
+            // 
+            // tBoxAsksCustomer
+            // 
+            this.tBoxAsksCustomer.Location = new System.Drawing.Point(169, 8);
+            this.tBoxAsksCustomer.Name = "tBoxAsksCustomer";
+            this.tBoxAsksCustomer.Size = new System.Drawing.Size(260, 22);
+            this.tBoxAsksCustomer.TabIndex = 1;
+            // 
+            // qLNHADATDataSet
+            // 
+            this.qLNHADATDataSet.DataSetName = "QLNHADATDataSet";
+            this.qLNHADATDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lOAINHABindingSource
+            // 
+            this.lOAINHABindingSource.DataMember = "LOAINHA";
+            this.lOAINHABindingSource.DataSource = this.qLNHADATDataSet;
+            // 
+            // lOAINHATableAdapter
+            // 
+            this.lOAINHATableAdapter.ClearBeforeFill = true;
             // 
             // fCustomer
             // 
@@ -550,37 +397,28 @@ namespace ManageStore
             this.Controls.Add(this.tabOwnerHouse);
             this.Name = "fCustomer";
             this.Text = "fCustomer";
+            this.Load += new System.EventHandler(this.fCustomer_Load);
             this.tabOwnerHouse.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvAsksCustomer)).EndInit();
             this.tpStaff.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.panel23.ResumeLayout(false);
-            this.panel23.PerformLayout();
-            this.panel25.ResumeLayout(false);
-            this.panel25.PerformLayout();
             this.panel26.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel41.ResumeLayout(false);
-            this.panel41.PerformLayout();
-            this.panel37.ResumeLayout(false);
-            this.panel37.PerformLayout();
-            this.panel38.ResumeLayout(false);
-            this.panel38.PerformLayout();
-            this.panel39.ResumeLayout(false);
-            this.panel39.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNHADATDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOAINHABindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -591,12 +429,12 @@ namespace ManageStore
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnDisplayStaff;
-        private System.Windows.Forms.Button btnDeleteStaff;
-        private System.Windows.Forms.Button btnEditStaff;
+        private System.Windows.Forms.Button btnDisplayAsksCustomer;
+        private System.Windows.Forms.Button btnDeleteAskCustomer;
+        private System.Windows.Forms.Button btnEditAsksCustomer;
         private System.Windows.Forms.Button btnAddStaff;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dtgvStaff;
+        private System.Windows.Forms.DataGridView dtgvAsksCustomer;
         private System.Windows.Forms.TabPage tpStaff;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel13;
@@ -605,15 +443,6 @@ namespace ManageStore
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -621,20 +450,14 @@ namespace ManageStore
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox tBoxAsksCustomer;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel41;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Panel panel38;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Panel panel39;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ListBox lBoxHouseTypes;
+        private QLNHADATDataSet qLNHADATDataSet;
+        private System.Windows.Forms.BindingSource lOAINHABindingSource;
+        private QLNHADATDataSetTableAdapters.LOAINHATableAdapter lOAINHATableAdapter;
     }
 }

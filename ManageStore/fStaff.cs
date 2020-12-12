@@ -73,11 +73,11 @@ namespace ManageStore
 
         private void bTonSearch_Click(object sender, EventArgs e)
         {
-            string query = "exec sp_TimNhaChoKhachHang @loaiNha, @gia, " +
-                "@loaiGia, @soLuongPhong, @loaiSoLuongPhong, " +
-                "@duongNha, @quanNha, @tpNha, @khuVucNha, @idChiNhanh";
+            string query = "exec sp_TimNhaChoKhachHang @loaiNha, @gia," +
+                " @loaiGia, @soLuongPhong,@duongNha, @quanNha, @tpNha," +
+                " @khuVucNha, @idChiNhanh";
             object[] parameter = {lBoxHouseTypes.Text, tBoxCost.Text, 2, 
-                numericRoom.Value, 2, tBoxStreet.Text, tBoxDistrict.Text,
+                numericRoom.Value, tBoxStreet.Text, tBoxDistrict.Text,
                 tBoxCity.Text, tBoxRegion.Text, tBoxBranchID.Text};
 
             DataTable data = DataProvider.Instance.ExecuteParameterQuery(query, parameter);

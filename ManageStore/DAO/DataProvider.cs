@@ -159,7 +159,7 @@ namespace ManageStore.DAO
             }
             catch(Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message); //Them using System.Windows.Forms;
             }
 
             return data;
