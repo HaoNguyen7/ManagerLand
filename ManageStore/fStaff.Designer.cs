@@ -54,6 +54,9 @@ namespace ManageStore
             this.label2 = new System.Windows.Forms.Label();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.cBoxPriceType = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.numericRoom = new System.Windows.Forms.NumericUpDown();
@@ -77,7 +80,7 @@ namespace ManageStore
             this.tBoxBranchID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel35 = new System.Windows.Forms.Panel();
-            this.lBoxHouseTypes = new System.Windows.Forms.ListBox();
+            this.cBoxHousesType = new System.Windows.Forms.ComboBox();
             this.labelNha = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnViewCategory = new System.Windows.Forms.Button();
@@ -124,9 +127,7 @@ namespace ManageStore
             this.label9 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lBoxCostTypes = new System.Windows.Forms.ListBox();
+            this.tpReviewHouse = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tpRequireStaff.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -138,6 +139,7 @@ namespace ManageStore
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRoom)).BeginInit();
             this.panel1.SuspendLayout();
@@ -168,7 +170,6 @@ namespace ManageStore
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -177,10 +178,11 @@ namespace ManageStore
             this.tabControl1.Controls.Add(this.tpHouseStaff);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tpReviewHouse);
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1250, 784);
+            this.tabControl1.Size = new System.Drawing.Size(1250, 794);
             this.tabControl1.TabIndex = 0;
             // 
             // tpRequireStaff
@@ -189,7 +191,7 @@ namespace ManageStore
             this.tpRequireStaff.Location = new System.Drawing.Point(4, 25);
             this.tpRequireStaff.Name = "tpRequireStaff";
             this.tpRequireStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRequireStaff.Size = new System.Drawing.Size(1242, 755);
+            this.tpRequireStaff.Size = new System.Drawing.Size(1242, 765);
             this.tpRequireStaff.TabIndex = 0;
             this.tpRequireStaff.Text = "Yêu cầu";
             this.tpRequireStaff.UseVisualStyleBackColor = true;
@@ -200,27 +202,27 @@ namespace ManageStore
             this.panel3.Controls.Add(this.dtgvCustomerRequirments);
             this.panel3.Location = new System.Drawing.Point(5, 6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1231, 479);
+            this.panel3.Size = new System.Drawing.Size(1231, 642);
             this.panel3.TabIndex = 3;
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.btnDisplayStaff);
             this.panel14.Controls.Add(this.label12);
+            this.panel14.Controls.Add(this.btnDisplayStaff);
             this.panel14.Controls.Add(this.label11);
             this.panel14.Controls.Add(this.label10);
             this.panel14.Controls.Add(this.tBoxBranchName);
             this.panel14.Controls.Add(this.tBoxStaffName);
             this.panel14.Controls.Add(this.tBoxStaffID);
-            this.panel14.Location = new System.Drawing.Point(926, 3);
+            this.panel14.Location = new System.Drawing.Point(890, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(302, 468);
+            this.panel14.Size = new System.Drawing.Size(338, 184);
             this.panel14.TabIndex = 1;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
             // 
             // btnDisplayStaff
             // 
-            this.btnDisplayStaff.Location = new System.Drawing.Point(224, 185);
+            this.btnDisplayStaff.Location = new System.Drawing.Point(260, 113);
             this.btnDisplayStaff.Name = "btnDisplayStaff";
             this.btnDisplayStaff.Size = new System.Drawing.Size(75, 55);
             this.btnDisplayStaff.TabIndex = 3;
@@ -231,7 +233,7 @@ namespace ManageStore
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 134);
+            this.label12.Location = new System.Drawing.Point(4, 85);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 17);
             this.label12.TabIndex = 5;
@@ -240,7 +242,7 @@ namespace ManageStore
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 83);
+            this.label11.Location = new System.Drawing.Point(4, 47);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(107, 17);
             this.label11.TabIndex = 4;
@@ -249,7 +251,7 @@ namespace ManageStore
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 33);
+            this.label10.Location = new System.Drawing.Point(3, 12);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(95, 17);
             this.label10.TabIndex = 3;
@@ -257,23 +259,23 @@ namespace ManageStore
             // 
             // tBoxBranchName
             // 
-            this.tBoxBranchName.Location = new System.Drawing.Point(137, 129);
+            this.tBoxBranchName.Location = new System.Drawing.Point(137, 85);
             this.tBoxBranchName.Name = "tBoxBranchName";
-            this.tBoxBranchName.Size = new System.Drawing.Size(162, 22);
+            this.tBoxBranchName.Size = new System.Drawing.Size(198, 22);
             this.tBoxBranchName.TabIndex = 2;
             // 
             // tBoxStaffName
             // 
-            this.tBoxStaffName.Location = new System.Drawing.Point(137, 78);
+            this.tBoxStaffName.Location = new System.Drawing.Point(137, 47);
             this.tBoxStaffName.Name = "tBoxStaffName";
-            this.tBoxStaffName.Size = new System.Drawing.Size(162, 22);
+            this.tBoxStaffName.Size = new System.Drawing.Size(198, 22);
             this.tBoxStaffName.TabIndex = 1;
             // 
             // tBoxStaffID
             // 
-            this.tBoxStaffID.Location = new System.Drawing.Point(137, 33);
+            this.tBoxStaffID.Location = new System.Drawing.Point(137, 12);
             this.tBoxStaffID.Name = "tBoxStaffID";
-            this.tBoxStaffID.Size = new System.Drawing.Size(162, 22);
+            this.tBoxStaffID.Size = new System.Drawing.Size(198, 22);
             this.tBoxStaffID.TabIndex = 0;
             // 
             // dtgvCustomerRequirments
@@ -283,7 +285,7 @@ namespace ManageStore
             this.dtgvCustomerRequirments.Name = "dtgvCustomerRequirments";
             this.dtgvCustomerRequirments.RowHeadersWidth = 51;
             this.dtgvCustomerRequirments.RowTemplate.Height = 24;
-            this.dtgvCustomerRequirments.Size = new System.Drawing.Size(880, 468);
+            this.dtgvCustomerRequirments.Size = new System.Drawing.Size(880, 625);
             this.dtgvCustomerRequirments.TabIndex = 0;
             this.dtgvCustomerRequirments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCustomerRequirments_CellContentClick);
             // 
@@ -296,10 +298,11 @@ namespace ManageStore
             this.tpHouseStaff.Location = new System.Drawing.Point(4, 25);
             this.tpHouseStaff.Name = "tpHouseStaff";
             this.tpHouseStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHouseStaff.Size = new System.Drawing.Size(1242, 755);
+            this.tpHouseStaff.Size = new System.Drawing.Size(1242, 765);
             this.tpHouseStaff.TabIndex = 3;
             this.tpHouseStaff.Text = "Nhà";
             this.tpHouseStaff.UseVisualStyleBackColor = true;
+            this.tpHouseStaff.Click += new System.EventHandler(this.tpHouseStaff_Click);
             // 
             // panel2
             // 
@@ -412,6 +415,35 @@ namespace ManageStore
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(438, 476);
             this.panel15.TabIndex = 4;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.cBoxPriceType);
+            this.panel19.Controls.Add(this.label13);
+            this.panel19.Location = new System.Drawing.Point(3, 96);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(432, 40);
+            this.panel19.TabIndex = 29;
+            // 
+            // cBoxPriceType
+            // 
+            this.cBoxPriceType.FormattingEnabled = true;
+            this.cBoxPriceType.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cBoxPriceType.Location = new System.Drawing.Point(120, 11);
+            this.cBoxPriceType.Name = "cBoxPriceType";
+            this.cBoxPriceType.Size = new System.Drawing.Size(290, 24);
+            this.cBoxPriceType.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(4, 11);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(58, 17);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Loại giá";
             // 
             // panel20
             // 
@@ -601,24 +633,23 @@ namespace ManageStore
             // 
             // panel35
             // 
-            this.panel35.Controls.Add(this.lBoxHouseTypes);
+            this.panel35.Controls.Add(this.cBoxHousesType);
             this.panel35.Controls.Add(this.labelNha);
             this.panel35.Location = new System.Drawing.Point(3, 4);
             this.panel35.Name = "panel35";
             this.panel35.Size = new System.Drawing.Size(429, 40);
             this.panel35.TabIndex = 1;
             // 
-            // lBoxHouseTypes
+            // cBoxHousesType
             // 
-            this.lBoxHouseTypes.FormattingEnabled = true;
-            this.lBoxHouseTypes.ItemHeight = 16;
-            this.lBoxHouseTypes.Items.AddRange(new object[] {
+            this.cBoxHousesType.FormattingEnabled = true;
+            this.cBoxHousesType.Items.AddRange(new object[] {
             "Nha Ban",
             "Nha Thue"});
-            this.lBoxHouseTypes.Location = new System.Drawing.Point(119, 8);
-            this.lBoxHouseTypes.Name = "lBoxHouseTypes";
-            this.lBoxHouseTypes.Size = new System.Drawing.Size(291, 20);
-            this.lBoxHouseTypes.TabIndex = 1;
+            this.cBoxHousesType.Location = new System.Drawing.Point(119, 8);
+            this.cBoxHousesType.Name = "cBoxHousesType";
+            this.cBoxHousesType.Size = new System.Drawing.Size(291, 24);
+            this.cBoxHousesType.TabIndex = 1;
             // 
             // labelNha
             // 
@@ -652,7 +683,7 @@ namespace ManageStore
             this.panel18.Controls.Add(this.dtgvCategory);
             this.panel18.Location = new System.Drawing.Point(6, 75);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(789, 674);
+            this.panel18.Size = new System.Drawing.Size(789, 684);
             this.panel18.TabIndex = 4;
             // 
             // dtgvCategory
@@ -662,7 +693,7 @@ namespace ManageStore
             this.dtgvCategory.Name = "dtgvCategory";
             this.dtgvCategory.RowHeadersWidth = 51;
             this.dtgvCategory.RowTemplate.Height = 24;
-            this.dtgvCategory.Size = new System.Drawing.Size(782, 667);
+            this.dtgvCategory.Size = new System.Drawing.Size(782, 673);
             this.dtgvCategory.TabIndex = 0;
             this.dtgvCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCategory_CellContentClick);
             // 
@@ -675,7 +706,7 @@ namespace ManageStore
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1242, 755);
+            this.tabPage2.Size = new System.Drawing.Size(1242, 765);
             this.tabPage2.TabIndex = 7;
             this.tabPage2.Text = "Chủ nhà";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -853,7 +884,7 @@ namespace ManageStore
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1242, 755);
+            this.tabPage1.Size = new System.Drawing.Size(1242, 765);
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "Khách hàng";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1030,41 +1061,21 @@ namespace ManageStore
             this.dataGridView1.Size = new System.Drawing.Size(738, 566);
             this.dataGridView1.TabIndex = 0;
             // 
-            // panel19
+            // tpReviewHouse
             // 
-            this.panel19.Controls.Add(this.lBoxCostTypes);
-            this.panel19.Controls.Add(this.label13);
-            this.panel19.Location = new System.Drawing.Point(3, 96);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(432, 40);
-            this.panel19.TabIndex = 29;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 11);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(58, 17);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Loại giá";
-            // 
-            // lBoxCostTypes
-            // 
-            this.lBoxCostTypes.FormattingEnabled = true;
-            this.lBoxCostTypes.ItemHeight = 16;
-            this.lBoxCostTypes.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.lBoxCostTypes.Location = new System.Drawing.Point(120, 11);
-            this.lBoxCostTypes.Name = "lBoxCostTypes";
-            this.lBoxCostTypes.Size = new System.Drawing.Size(290, 20);
-            this.lBoxCostTypes.TabIndex = 1;
+            this.tpReviewHouse.Location = new System.Drawing.Point(4, 25);
+            this.tpReviewHouse.Name = "tpReviewHouse";
+            this.tpReviewHouse.Padding = new System.Windows.Forms.Padding(3);
+            this.tpReviewHouse.Size = new System.Drawing.Size(1242, 765);
+            this.tpReviewHouse.TabIndex = 9;
+            this.tpReviewHouse.Text = "Đánh giá nhà";
+            this.tpReviewHouse.UseVisualStyleBackColor = true;
             // 
             // fStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1259, 523);
+            this.ClientSize = new System.Drawing.Size(1297, 812);
             this.Controls.Add(this.tabControl1);
             this.Name = "fStaff";
             this.Text = "Nhân viên";
@@ -1083,6 +1094,8 @@ namespace ManageStore
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel15.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRoom)).EndInit();
@@ -1131,15 +1144,11 @@ namespace ManageStore
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpRequireStaff;
         private System.Windows.Forms.Button btnDisplayStaff;
         private System.Windows.Forms.Panel panel3;
@@ -1233,9 +1242,11 @@ namespace ManageStore
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown numericRoom;
-        private System.Windows.Forms.ListBox lBoxHouseTypes;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.ListBox lBoxCostTypes;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cBoxPriceType;
+        private System.Windows.Forms.ComboBox cBoxHousesType;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpReviewHouse;
     }
 }

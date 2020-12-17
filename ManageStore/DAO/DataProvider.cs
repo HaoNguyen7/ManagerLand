@@ -56,7 +56,7 @@ namespace ManageStore.DAO
             return data;
         }
 
-        public int ExecuteNonQuery(string query, object[] parameter = null)
+        public int ExecuteNonQuery(string query, object[] parameter = null) //Tra ve so dong update, delete thanh cong.
         {
             int data = 0;
 

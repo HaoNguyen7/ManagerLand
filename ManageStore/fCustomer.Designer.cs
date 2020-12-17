@@ -33,6 +33,14 @@ namespace ManageStore
             this.tabOwnerHouse = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tBoxAsksCustomer = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lBoxHouseTypes = new System.Windows.Forms.ListBox();
+            this.lOAINHABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLNHADATDataSet = new ManageStore.QLNHADATDataSet();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnDisplayAsksCustomer = new System.Windows.Forms.Button();
             this.btnDeleteAskCustomer = new System.Windows.Forms.Button();
@@ -55,18 +63,14 @@ namespace ManageStore
             this.button5 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lBoxHouseTypes = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tBoxAsksCustomer = new System.Windows.Forms.TextBox();
-            this.qLNHADATDataSet = new ManageStore.QLNHADATDataSet();
-            this.lOAINHABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lOAINHATableAdapter = new ManageStore.QLNHADATDataSetTableAdapters.LOAINHATableAdapter();
             this.tabOwnerHouse.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lOAINHABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNHADATDataSet)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAsksCustomer)).BeginInit();
@@ -77,10 +81,6 @@ namespace ManageStore
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNHADATDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOAINHABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabOwnerHouse
@@ -114,6 +114,72 @@ namespace ManageStore
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(438, 398);
             this.panel5.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tBoxAsksCustomer);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(3, 51);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(432, 42);
+            this.panel2.TabIndex = 1;
+            // 
+            // tBoxAsksCustomer
+            // 
+            this.tBoxAsksCustomer.Location = new System.Drawing.Point(169, 8);
+            this.tBoxAsksCustomer.Name = "tBoxAsksCustomer";
+            this.tBoxAsksCustomer.Size = new System.Drawing.Size(260, 22);
+            this.tBoxAsksCustomer.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Yêu cầu:";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lBoxHouseTypes);
+            this.panel1.Location = new System.Drawing.Point(3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(432, 41);
+            this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Loại Nhà:";
+            // 
+            // lBoxHouseTypes
+            // 
+            this.lBoxHouseTypes.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.lOAINHABindingSource, "TENLOAINHA", true));
+            this.lBoxHouseTypes.DataSource = this.lOAINHABindingSource;
+            this.lBoxHouseTypes.DisplayMember = "TENLOAINHA";
+            this.lBoxHouseTypes.FormattingEnabled = true;
+            this.lBoxHouseTypes.ItemHeight = 16;
+            this.lBoxHouseTypes.Location = new System.Drawing.Point(169, 2);
+            this.lBoxHouseTypes.Name = "lBoxHouseTypes";
+            this.lBoxHouseTypes.Size = new System.Drawing.Size(260, 36);
+            this.lBoxHouseTypes.TabIndex = 0;
+            this.lBoxHouseTypes.ValueMember = "TENLOAINHA";
+            // 
+            // lOAINHABindingSource
+            // 
+            this.lOAINHABindingSource.DataMember = "LOAINHA";
+            this.lOAINHABindingSource.DataSource = this.qLNHADATDataSet;
+            // 
+            // qLNHADATDataSet
+            // 
+            this.qLNHADATDataSet.DataSetName = "QLNHADATDataSet";
+            this.qLNHADATDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel4
             // 
@@ -260,7 +326,7 @@ namespace ManageStore
             this.panel26.Controls.Add(this.button3);
             this.panel26.Controls.Add(this.button4);
             this.panel26.Controls.Add(this.button5);
-            this.panel26.Location = new System.Drawing.Point(7, 7);
+            this.panel26.Location = new System.Drawing.Point(6, 7);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(326, 62);
             this.panel26.TabIndex = 1;
@@ -319,72 +385,6 @@ namespace ManageStore
             this.dataGridView1.Size = new System.Drawing.Size(738, 359);
             this.dataGridView1.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lBoxHouseTypes);
-            this.panel1.Location = new System.Drawing.Point(3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 41);
-            this.panel1.TabIndex = 0;
-            // 
-            // lBoxHouseTypes
-            // 
-            this.lBoxHouseTypes.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.lOAINHABindingSource, "TENLOAINHA", true));
-            this.lBoxHouseTypes.DataSource = this.lOAINHABindingSource;
-            this.lBoxHouseTypes.DisplayMember = "TENLOAINHA";
-            this.lBoxHouseTypes.FormattingEnabled = true;
-            this.lBoxHouseTypes.ItemHeight = 16;
-            this.lBoxHouseTypes.Location = new System.Drawing.Point(169, 2);
-            this.lBoxHouseTypes.Name = "lBoxHouseTypes";
-            this.lBoxHouseTypes.Size = new System.Drawing.Size(260, 36);
-            this.lBoxHouseTypes.TabIndex = 0;
-            this.lBoxHouseTypes.ValueMember = "TENLOAINHA";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Loại Nhà:";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.tBoxAsksCustomer);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(3, 51);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(432, 42);
-            this.panel2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Yêu cầu:";
-            // 
-            // tBoxAsksCustomer
-            // 
-            this.tBoxAsksCustomer.Location = new System.Drawing.Point(169, 8);
-            this.tBoxAsksCustomer.Name = "tBoxAsksCustomer";
-            this.tBoxAsksCustomer.Size = new System.Drawing.Size(260, 22);
-            this.tBoxAsksCustomer.TabIndex = 1;
-            // 
-            // qLNHADATDataSet
-            // 
-            this.qLNHADATDataSet.DataSetName = "QLNHADATDataSet";
-            this.qLNHADATDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lOAINHABindingSource
-            // 
-            this.lOAINHABindingSource.DataMember = "LOAINHA";
-            this.lOAINHABindingSource.DataSource = this.qLNHADATDataSet;
-            // 
             // lOAINHATableAdapter
             // 
             this.lOAINHATableAdapter.ClearBeforeFill = true;
@@ -401,6 +401,12 @@ namespace ManageStore
             this.tabOwnerHouse.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lOAINHABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNHADATDataSet)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAsksCustomer)).EndInit();
@@ -413,12 +419,6 @@ namespace ManageStore
             this.panel26.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNHADATDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOAINHABindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

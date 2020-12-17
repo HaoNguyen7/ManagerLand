@@ -1,7 +1,6 @@
 ﻿use QLNHADAT
 go
 
-
 --Xem thông tin Khách Hàng yêu cầu. -> một procedure select KHACH HANG.
 alter procedure sp_TimNhaChoKhachHang
 	@loaiNha varchar(50) = NULL,
@@ -94,7 +93,7 @@ begin
 end
 go
 
-select getdate()
+--select getdate()
 --exec sp_TimNhaChoKhachHang 'Nha Ban', 100000, 2, 5, 2
 --go
 
@@ -125,6 +124,7 @@ begin
 	if(@idChiNhanh != N'')
 	set @strQuery = @strQuery + ' and kh.IDCNHANH = @idChiNhanh'
 	--Thuc thi procedure
+	waitfor delay '00:00:30'
 	exec sp_executesql
 		@strQuery,
 		@paraList,
@@ -133,4 +133,27 @@ begin
 		@idChiNhanh		
 end
 GO
-exec sp_XemYeuCauKhachHang NULL, NULL, N'Tp Ha Noi'
+--exec sp_XemYeuCauKhachHang NULL, NULL, N'1'
+
+--## Nhân viên ghi nhận đánh giá của khách hàng ##--
+create procedure sp_AddHouseReview @houseID varchar(10) = NULL, @review varchar(100)= NULL
+as
+begin
+	insert TTDANHGIANHA
+	values((select max(tt.STT) from TTDANHGIANHA tt), @houseID, getdate(), @review)
+end
+go
+--## Nhân viên sửa lại đánh giá của khách hàng ##--
+create procedure sp_ModifyHouseReview @houseID varchar(10) = NULL, @review varchar(100)= NULL
+as
+begin
+	update TTDANHGIANHA
+	set NHANXET = @review, NGAYNX = getdate()
+	where IDNHANX = @houseID
+end
+go
+
+--## Nhân viên xóa đánh giá của khách hàng ##--
+
+
+--### Nhân viên cập nhật lượt view cho nhà

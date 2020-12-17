@@ -76,12 +76,17 @@ namespace ManageStore
             string query = "exec sp_TimNhaChoKhachHang @loaiNha, @gia," +
                 " @loaiGia, @soLuongPhong,@duongNha, @quanNha, @tpNha," +
                 " @khuVucNha, @idChiNhanh";
-            object[] parameter = {lBoxHouseTypes.Text, tBoxCost.Text, 2, 
+            object[] parameter = {cBoxHousesType.Text, tBoxCost.Text, cBoxPriceType.Text, 
                 numericRoom.Value, tBoxStreet.Text, tBoxDistrict.Text,
                 tBoxCity.Text, tBoxRegion.Text, tBoxBranchID.Text};
 
             DataTable data = DataProvider.Instance.ExecuteParameterQuery(query, parameter);
             dtgvCategory.DataSource = data;
+        }
+
+        private void tpHouseStaff_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
