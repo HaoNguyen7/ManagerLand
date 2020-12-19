@@ -13,7 +13,7 @@ namespace ManageStore.DAO
     {
         private static DataProvider instance;
 
-        private string connectionSTR = @"Data Source=DESKTOP-AJ52EVR;Initial Catalog=QLNHADAT;Integrated Security=True";
+        private string connectionSTR = @"Data Source=KHOA\SQLEXPRESS;Initial Catalog = QLNHADAT; Integrated Security = True";
 
         public static DataProvider Instance { 
             get { if (instance == null) instance = new DataProvider();return DataProvider.instance; }
