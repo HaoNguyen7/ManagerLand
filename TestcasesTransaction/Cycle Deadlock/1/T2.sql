@@ -1,17 +1,16 @@
-﻿use master
-go
+USE [QLNHADAT]
+GO
 
-use QLNHADAT
-go 
+CREATE proc [dbo].[sp_update2]  @NhanVienID varchar(10), @Ten nvarchar(20)
+as
+begin
+	update NHANVIEN
+	set TENNV = @Ten
+	where IDNV = @NhanVienID
 
-BEGIN TRANSACTION
 
-select *
-from NHANVIEN
-where IDNV = @NhanVienID
-
-select *
-from NHA
-where IDNV = @NhanVienID and TINHTRANG = 0
-
-COMMIT TRANSACTION
+	select *
+	from NHA
+	where IDNV = @NhanVienID
+end
+GO

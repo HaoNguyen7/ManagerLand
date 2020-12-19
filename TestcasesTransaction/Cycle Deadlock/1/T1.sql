@@ -1,21 +1,17 @@
-﻿use master
-go
+USE [QLNHADAT]
+GO
 
-use QLNHADAT
-go 
+CREATE proc [dbo].[sp_update] @houseID  varchar(10), @NhanVienID varchar(10)
+as
+begin
+	update NHA
+	set TINHTRANG = 1
+	where IDNHA = @houseID
 
-BEGIN TRANSACTION
+	waitfor delay '00:00:05'
 
-update dbo.NHA
-set TINHTRANG = 'Đã Thuê'
-where IDNHA = '@NhaID'
-
-waitfor delay '00:00:05'
-
-select *
-from NHANVIEN
-where IDNV = @NhanVienID
-
-
-COMMIT TRANSACTION
-
+	select *
+	from NHANVIEN
+	where IDNV = @NhanVienID
+end
+GO
