@@ -13,7 +13,11 @@ namespace ManageStore.DAO
     {
         private static DataProvider instance;
 
+<<<<<<< Updated upstream
         private string connectionSTR = @"Data Source=KHOA\SQLEXPRESS;Initial Catalog = QLNHADAT; Integrated Security = True";
+=======
+        private string connectionSTR = @"Data Source=ADMIN;Initial Catalog=QLNHADAT;Integrated Security=True";
+>>>>>>> Stashed changes
 
         public static DataProvider Instance { 
             get { if (instance == null) instance = new DataProvider();return DataProvider.instance; }
