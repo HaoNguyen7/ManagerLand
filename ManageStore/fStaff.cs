@@ -88,5 +88,38 @@ namespace ManageStore
         {
 
         }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            if (textHouseID.Text == null || numViews.Value == 0) return;
+            fSwitchCase switchCase = new fSwitchCase();
+            switchCase.ShowDialog();
+            if(switchCase.Demo == "T2")
+            {
+                string query = "exec sp_updateView_T2  @houseID @views";
+                object[] parameter = {textHouseID.Text, numViews.Value};
+
+                DataProvider.Instance.ExecuteNonQuery(query, parameter);
+
+                string query2 = "exec sp_TimNhaChoKhachHang";
+
+                DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                dtgvCategory.DataSource = data;
+            }
+            else if(switchCase.Text == "T1")
+            {
+                string query = "exec sp_updateView_T1  @houseID @views";
+                object[] parameter = { textHouseID.Text, numViews.Value };
+
+                DataProvider.Instance.ExecuteNonQuery(query, parameter);
+
+                string query2 = "exec sp_TimNhaChoKhachHang";
+
+                DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                dtgvCategory.DataSource = data;
+            }
+            switchCase.Close();
+            
+        }
     }
 }

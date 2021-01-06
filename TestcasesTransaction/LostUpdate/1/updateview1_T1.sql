@@ -2,16 +2,16 @@ USE [QLNHADAT]
 GO
 
 --T1
-create proc [dbo].[sp_updateView_T1] @houseID varchar(10) = NULL, @views int = NULL
+alter proc [dbo].[sp_updateView_T1] @houseID varchar(10) = NULL, @views int = NULL
 as
-begin
+BEGIN TRAN 
 	declare @currentViews int
 	set @currentViews = (select LUOTXEM from NHA where IDNHA = @houseID)
 	waitfor delay '00:00:05'
 	update NHA
 	set LUOTXEM = @currentViews + @views
 	where IDCNHA = @houseID
-end
+COMMIT TRAN 
 GO
 
 select * from NHA

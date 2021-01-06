@@ -31,6 +31,8 @@ namespace ManageStore
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            fSwitchCase switchDatabase = new fSwitchCase();//truoc khi so login can chon connectionstring de ket noi den 1 database
+            switchDatabase.ShowDialog();
             string userName = txbUserName.Text;
             string passWord = txbPassword.Text;
             if (Login(userName, passWord))

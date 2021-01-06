@@ -1,4 +1,4 @@
-﻿use QLNHADAT
+﻿--use QLNHADAT
 --exec sp_XemYeuCauKhachHang NULL, NULL, HCM
 --go
 --Nhap liệu
@@ -105,13 +105,13 @@ go
 --	[TENKH] [varchar](50) NULL,
 --	[DIACHIKH] [varchar](100) NULL,
 --	[DIENTHOAIKH] [varchar](10) NULL,
---	[LOAINHA] [varchar](10) NULL,
+--	[LOAINHA] [varchar](100) NULL,
 --	[TIEUCHINHA] [varchar](100) NULL,
 go
 insert KHACHHANG
-values('1', '1', 'Vo Duc An', 'Tp Ho Chi Minh', '0012345678', 'Can mot nha ban', 'Nha tren 3 phong'),
-('2', '1', 'Ho Hoai Nam', 'Tp Ho Chi Minh', '0012345679', 'Can mot can de thue', 'Nha tren 2 phong'),
-('3', '1', 'Ly Khang', 'Tp Ha Noi', '0012345670', 'Can mot nha ban', '')
+values('1', '1', 'Vo Duc An', 'Tp Ho Chi Minh', '0012345678', 'nha ban', 'Nha tren 3 phong'),
+('2', '1', 'Ho Hoai Nam', 'Tp Ho Chi Minh', '0012345679', 'nha thue', 'Nha tren 2 phong'),
+('3', '1', 'Ly Khang', 'Tp Ha Noi', '0012345670', 'nha ban', '')
 go
 --[TTDANHGIANHA](
 --	[STT] [bigint] NOT NULL,
