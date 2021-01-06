@@ -33,8 +33,8 @@ namespace ManageStore
             this.tpRequireStaff = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.btnDisplayStaff = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnDisplayStaff = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tBoxBranchName = new System.Windows.Forms.TextBox();
@@ -85,7 +85,7 @@ namespace ManageStore
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnViewCategory = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.dtgvCategory = new System.Windows.Forms.DataGridView();
+            this.dtgvHouse = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button10 = new System.Windows.Forms.Button();
             this.panel56 = new System.Windows.Forms.Panel();
@@ -105,7 +105,7 @@ namespace ManageStore
             this.textBox30 = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.panel67 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dtgvOwner = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -126,7 +126,7 @@ namespace ManageStore
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgvCustomer = new System.Windows.Forms.DataGridView();
             this.tpReviewHouse = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tpRequireStaff.SuspendLayout();
@@ -151,7 +151,7 @@ namespace ManageStore
             this.panel35.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvHouse)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel56.SuspendLayout();
             this.panel57.SuspendLayout();
@@ -160,7 +160,7 @@ namespace ManageStore
             this.panel64.SuspendLayout();
             this.panel65.SuspendLayout();
             this.panel67.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvOwner)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -169,7 +169,7 @@ namespace ManageStore
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -220,6 +220,15 @@ namespace ManageStore
             this.panel14.TabIndex = 1;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(4, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 17);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "IDChiNhanh";
+            // 
             // btnDisplayStaff
             // 
             this.btnDisplayStaff.Location = new System.Drawing.Point(260, 113);
@@ -229,15 +238,6 @@ namespace ManageStore
             this.btnDisplayStaff.Text = "Xem";
             this.btnDisplayStaff.UseVisualStyleBackColor = true;
             this.btnDisplayStaff.Click += new System.EventHandler(this.btnDisplayStaff_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 85);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 17);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "IDChiNhanh";
             // 
             // label11
             // 
@@ -680,22 +680,22 @@ namespace ManageStore
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.dtgvCategory);
+            this.panel18.Controls.Add(this.dtgvHouse);
             this.panel18.Location = new System.Drawing.Point(6, 75);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(789, 684);
             this.panel18.TabIndex = 4;
             // 
-            // dtgvCategory
+            // dtgvHouse
             // 
-            this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCategory.Location = new System.Drawing.Point(4, 4);
-            this.dtgvCategory.Name = "dtgvCategory";
-            this.dtgvCategory.RowHeadersWidth = 51;
-            this.dtgvCategory.RowTemplate.Height = 24;
-            this.dtgvCategory.Size = new System.Drawing.Size(782, 673);
-            this.dtgvCategory.TabIndex = 0;
-            this.dtgvCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCategory_CellContentClick);
+            this.dtgvHouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvHouse.Location = new System.Drawing.Point(4, 4);
+            this.dtgvHouse.Name = "dtgvHouse";
+            this.dtgvHouse.RowHeadersWidth = 51;
+            this.dtgvHouse.RowTemplate.Height = 24;
+            this.dtgvHouse.Size = new System.Drawing.Size(782, 673);
+            this.dtgvHouse.TabIndex = 0;
+            this.dtgvHouse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCategory_CellContentClick);
             // 
             // tabPage2
             // 
@@ -858,21 +858,21 @@ namespace ManageStore
             // 
             // panel67
             // 
-            this.panel67.Controls.Add(this.dataGridView2);
+            this.panel67.Controls.Add(this.dtgvOwner);
             this.panel67.Location = new System.Drawing.Point(6, 75);
             this.panel67.Name = "panel67";
             this.panel67.Size = new System.Drawing.Size(745, 573);
             this.panel67.TabIndex = 0;
             // 
-            // dataGridView2
+            // dtgvOwner
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(738, 566);
-            this.dataGridView2.TabIndex = 0;
+            this.dtgvOwner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvOwner.Location = new System.Drawing.Point(4, 4);
+            this.dtgvOwner.Name = "dtgvOwner";
+            this.dtgvOwner.RowHeadersWidth = 51;
+            this.dtgvOwner.RowTemplate.Height = 24;
+            this.dtgvOwner.Size = new System.Drawing.Size(738, 566);
+            this.dtgvOwner.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -1045,21 +1045,21 @@ namespace ManageStore
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.dataGridView1);
+            this.panel13.Controls.Add(this.dtgvCustomer);
             this.panel13.Location = new System.Drawing.Point(6, 75);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(745, 573);
             this.panel13.TabIndex = 0;
             // 
-            // dataGridView1
+            // dtgvCustomer
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(738, 566);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCustomer.Location = new System.Drawing.Point(4, 4);
+            this.dtgvCustomer.Name = "dtgvCustomer";
+            this.dtgvCustomer.RowHeadersWidth = 51;
+            this.dtgvCustomer.RowTemplate.Height = 24;
+            this.dtgvCustomer.Size = new System.Drawing.Size(738, 566);
+            this.dtgvCustomer.TabIndex = 0;
             // 
             // tpReviewHouse
             // 
@@ -1115,7 +1115,7 @@ namespace ManageStore
             this.panel35.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvHouse)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel56.ResumeLayout(false);
             this.panel56.PerformLayout();
@@ -1129,7 +1129,7 @@ namespace ManageStore
             this.panel65.ResumeLayout(false);
             this.panel65.PerformLayout();
             this.panel67.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvOwner)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -1143,7 +1143,7 @@ namespace ManageStore
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1163,7 +1163,7 @@ namespace ManageStore
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button btnViewCategory;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.DataGridView dtgvCategory;
+        private System.Windows.Forms.DataGridView dtgvHouse;
         private System.Windows.Forms.Button bTonSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tBoxCost;
@@ -1210,7 +1210,7 @@ namespace ManageStore
         private System.Windows.Forms.TextBox textBox30;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Panel panel67;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dtgvOwner;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel7;
@@ -1230,7 +1230,7 @@ namespace ManageStore
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgvCustomer;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label12;

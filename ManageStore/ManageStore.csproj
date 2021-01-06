@@ -49,11 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\CommentDAO.cs" />
+    <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\HouseDAO.cs" />
+    <Compile Include="DAO\OwnerDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\Comment.cs" />
+    <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\House.cs" />
+    <Compile Include="DTO\Owner.cs" />
     <Compile Include="DTO\Staff.cs" />
     <Compile Include="fAccountProfile.cs">
       <SubType>Form</SubType>
