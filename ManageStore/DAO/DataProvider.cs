@@ -12,20 +12,21 @@ namespace ManageStore.DAO
     public class DataProvider
     {
         private static DataProvider instance;
-        private static string connectionSTR;// = @"Data Source=DESKTOP-4ATVFV8\MSSQLSERVER01;Initial Catalog=QLNHADAT_TEST;Integrated Security=True";
-        
+
+
+        private string connectionSTR = @"Data Source=DESKTOP-AJ52EVR;Initial Catalog=QLNHADAT;Integrated Security=True";
+
+
         public static DataProvider Instance { 
             get { if (instance == null) instance = new DataProvider();return DataProvider.instance; }
             private set { DataProvider.instance = value; }
         }
 
-        public static string ConnectionSTR { get => connectionSTR; set => connectionSTR = value; }//ctrl + R + E
-
         public DataTable ExecuteQuery(string query, object[] parameter =null) //Truy van du lieu tu data base
         {
             DataTable data = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(ConnectionSTR)) //Ket noi nen de trong try catch
+            using (SqlConnection connection = new SqlConnection(connectionSTR)) //Ket noi nen de trong try catch
             {
 
                 connection.Open();
@@ -61,7 +62,7 @@ namespace ManageStore.DAO
         {
             int data = 0;
 
-            using (SqlConnection connection = new SqlConnection(ConnectionSTR))
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
 
 
@@ -94,7 +95,7 @@ namespace ManageStore.DAO
         {
             object data = 0;
 
-            using (SqlConnection connection = new SqlConnection(ConnectionSTR))
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
 
 
@@ -123,14 +124,13 @@ namespace ManageStore.DAO
             return data;
         }
 
-        //======================================================================
-        //Ham xu ly exec co dau phay
-        public DataTable ExecuteParameterQuery(string query, object[] parameter = null) //Truy van du lieu tu data base, khong can chu y dau ',' hay @, hay khoang trang
+        //Ham xu ly 
+        public DataTable ExecuteParameterQuery(string query, object[] parameter = null) //Truy van du lieu tu data base
         {
             DataTable data = new DataTable();
             try
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionSTR))
+                using (SqlConnection connection = new SqlConnection(connectionSTR))
                 {
 
                     connection.Open();
@@ -160,46 +160,6 @@ namespace ManageStore.DAO
                 }
             }
             catch(Exception error)
-            {
-                MessageBox.Show(error.Message); //Them using System.Windows.Forms;
-            }
-
-            return data;
-        }
-
-        public int ExecuteParameterNonQuery(string query, object[] parameter = null) //Truy van du lieu tu data base, khong can chu y dau ',' hay @, hay khoang trang
-        {
-            int data = 0;
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConnectionSTR))
-                {
-
-                    connection.Open();
-
-                    SqlCommand command = new SqlCommand(query, connection);
-                    if (parameter != null)
-                    {
-                        string[] listPara = query.Split(' ', ',');
-                        int i = 0;
-                        foreach (string item in listPara)
-                        {
-                            if (item.Contains('@'))
-                            {
-                                command.Parameters.AddWithValue(item, parameter[i]);
-                                i++;
-                            }
-                        }
-                    }
-
-
-                    data = command.ExecuteNonQuery();
-
-                    connection.Close();
-
-                }
-            }
-            catch (Exception error)
             {
                 MessageBox.Show(error.Message); //Them using System.Windows.Forms;
             }
