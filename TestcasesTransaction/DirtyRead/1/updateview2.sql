@@ -2,7 +2,7 @@
 GO
 
 --T1
-CREATE proc [dbo].[sp_updateView_2_T1] @houseID varchar(10) = NULL, @views int = NULL
+alter proc [dbo].[sp_updateView_2_T1] @houseID varchar(10) = NULL, @views int = NULL
 as
 begin tran
 	begin try
@@ -10,7 +10,7 @@ begin tran
 		set @currentViews = (select LUOTXEM from NHA where IDNHA = @houseID)
 		update NHA
 		set LUOTXEM = @currentViews + @views
-		where IDCNHA = @houseID
+		where IDNHA = @houseID
 	
 		waitfor delay '00:00:10'
 		if(@currentViews > @currentViews + @views)

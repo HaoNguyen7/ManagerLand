@@ -3,6 +3,7 @@ GO
 
 --T2
 CREATE proc [dbo].[sp_getView] @houseID  varchar(10) = NULL
+create proc [dbo].[sp_getView] @houseID  varchar(10) = NULL
 as
 begin
 	SET TRAN ISOLATION LEVEL READ UNCOMMITTED
