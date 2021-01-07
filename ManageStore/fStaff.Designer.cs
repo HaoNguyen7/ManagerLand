@@ -33,8 +33,8 @@ namespace ManageStore
             this.tpRequireStaff = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnDisplayStaff = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tBoxBranchName = new System.Windows.Forms.TextBox();
@@ -221,15 +221,6 @@ namespace ManageStore
             this.panel14.TabIndex = 1;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 85);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 17);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "IDChiNhanh";
-            // 
             // btnDisplayStaff
             // 
             this.btnDisplayStaff.Location = new System.Drawing.Point(260, 113);
@@ -239,6 +230,15 @@ namespace ManageStore
             this.btnDisplayStaff.Text = "Xem";
             this.btnDisplayStaff.UseVisualStyleBackColor = true;
             this.btnDisplayStaff.Click += new System.EventHandler(this.btnDisplayStaff_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(4, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 17);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "IDChiNhanh";
             // 
             // label11
             // 
