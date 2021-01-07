@@ -33,9 +33,12 @@ namespace ManageStore
             DataProvider.ConnectionSTR = @"Data Source=DESKTOP-4ATVFV8\MSSQLSERVER01;Initial Catalog=QLNHADAT;Integrated Security=True";
         }
 
-        public string Demo => comDemo.Text;
+        public string Demo => comboBox1.Text;
         
         public string Completed => comCompleted.Text;
 
+        public string TransactionOwner => comOwner.Text;
+
+        public string TransactionSituation => comSituation.Text;
     }
 }

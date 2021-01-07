@@ -91,35 +91,78 @@ namespace ManageStore
 
         private void btnEditCategory_Click(object sender, EventArgs e)
         {
-            if (textHouseID.Text == null || numViews.Value == 0) return;
             fSwitchCase switchCase = new fSwitchCase();
             switchCase.ShowDialog();
-            if(switchCase.Demo == "T2")
+            if(switchCase.TransactionOwner == "khoaminhi") //Lua chon nguoi viet 2 tinh huong
             {
-                string query = "exec sp_updateView_T2  @houseID @views";
-                object[] parameter = {textHouseID.Text, numViews.Value};
+                if(switchCase.TransactionSituation == "1") //Lua chon 1 trong 2 tinh huong da viet (Lost update)
+                {
+                    if (textHouseID.Text == "" || numViews.Value == 0) return;
+        
+                    if (switchCase.Demo == "T2") //Lua chon transaction
+                    {
+                        string query = "exec sp_updateView_T2  @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
 
-                DataProvider.Instance.ExecuteNonQuery(query, parameter);
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
 
-                string query2 = "exec sp_TimNhaChoKhachHang";
+                        string query2 = "exec sp_TimNhaChoKhachHang";
 
-                DataTable data = DataProvider.Instance.ExecuteQuery(query2);
-                dtgvCategory.DataSource = data;
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+                    else if (switchCase.Demo == "T1")
+                    {
+                        string query = "exec sp_updateView_T1  @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
+
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
+
+                        string query2 = "exec sp_TimNhaChoKhachHang";
+
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+                }
+
+                if(switchCase.TransactionSituation == "2") //Dirty read, đọc views âm
+                {
+                    
+
+                    if (switchCase.Demo == "T2") //Lua chon transaction
+                    {
+                        if (textHouseID.Text == "") return;
+                        string query = "exec sp_getView  @houseID";
+                        object[] parameter = { textHouseID.Text};
+
+                        DataTable data = DataProvider.Instance.ExecuteParameterQuery(query, parameter);
+                    
+                        dtgvCategory.DataSource = data;
+                    }
+                    else if (switchCase.Demo == "T1")
+                    {
+                        if (textHouseID.Text == "" || numViews.Value == 0) return;
+                        string query = "exec sp_updateView_2_T1  @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
+
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
+
+                        string query2 = "exec sp_TimNhaChoKhachHang";
+
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+                }
+                
             }
-            else if(switchCase.Text == "T1")
+
+
+            if(switchCase.TransactionOwner == "hao")
             {
-                string query = "exec sp_updateView_T1  @houseID @views";
-                object[] parameter = { textHouseID.Text, numViews.Value };
 
-                DataProvider.Instance.ExecuteNonQuery(query, parameter);
-
-                string query2 = "exec sp_TimNhaChoKhachHang";
-
-                DataTable data = DataProvider.Instance.ExecuteQuery(query2);
-                dtgvCategory.DataSource = data;
             }
+
             switchCase.Close();
-            
         }
     }
 }

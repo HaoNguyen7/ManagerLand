@@ -47,6 +47,7 @@ namespace ManageStore
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.numViews = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textHouseID = new System.Windows.Forms.TextBox();
@@ -127,7 +128,6 @@ namespace ManageStore
             this.panel13 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tpReviewHouse = new System.Windows.Forms.TabPage();
-            this.numViews = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tpRequireStaff.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -137,6 +137,7 @@ namespace ManageStore
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numViews)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -170,7 +171,6 @@ namespace ManageStore
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numViews)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -349,6 +349,23 @@ namespace ManageStore
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(432, 40);
             this.panel5.TabIndex = 4;
+            // 
+            // numViews
+            // 
+            this.numViews.Location = new System.Drawing.Point(120, 8);
+            this.numViews.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numViews.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numViews.Name = "numViews";
+            this.numViews.Size = new System.Drawing.Size(290, 22);
+            this.numViews.TabIndex = 30;
             // 
             // label3
             // 
@@ -1066,13 +1083,6 @@ namespace ManageStore
             this.tpReviewHouse.Text = "Đánh giá nhà";
             this.tpReviewHouse.UseVisualStyleBackColor = true;
             // 
-            // numViews
-            // 
-            this.numViews.Location = new System.Drawing.Point(120, 8);
-            this.numViews.Name = "numViews";
-            this.numViews.Size = new System.Drawing.Size(290, 22);
-            this.numViews.TabIndex = 30;
-            // 
             // fStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1093,6 +1103,7 @@ namespace ManageStore
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numViews)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel15.ResumeLayout(false);
@@ -1146,7 +1157,6 @@ namespace ManageStore
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numViews)).EndInit();
             this.ResumeLayout(false);
 
         }

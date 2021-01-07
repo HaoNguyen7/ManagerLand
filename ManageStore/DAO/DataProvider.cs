@@ -123,7 +123,8 @@ namespace ManageStore.DAO
             return data;
         }
 
-        //Ham xu ly 
+        //======================================================================
+        //Ham xu ly exec co dau phay
         public DataTable ExecuteParameterQuery(string query, object[] parameter = null) //Truy van du lieu tu data base, khong can chu y dau ',' hay @, hay khoang trang
         {
             DataTable data = new DataTable();
@@ -159,6 +160,46 @@ namespace ManageStore.DAO
                 }
             }
             catch(Exception error)
+            {
+                MessageBox.Show(error.Message); //Them using System.Windows.Forms;
+            }
+
+            return data;
+        }
+
+        public int ExecuteParameterNonQuery(string query, object[] parameter = null) //Truy van du lieu tu data base, khong can chu y dau ',' hay @, hay khoang trang
+        {
+            int data = 0;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionSTR))
+                {
+
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    if (parameter != null)
+                    {
+                        string[] listPara = query.Split(' ', ',');
+                        int i = 0;
+                        foreach (string item in listPara)
+                        {
+                            if (item.Contains('@'))
+                            {
+                                command.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
+                        }
+                    }
+
+
+                    data = command.ExecuteNonQuery();
+
+                    connection.Close();
+
+                }
+            }
+            catch (Exception error)
             {
                 MessageBox.Show(error.Message); //Them using System.Windows.Forms;
             }

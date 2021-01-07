@@ -11,7 +11,7 @@ BEGIN TRAN
 
 	update NHA
 	set LUOTXEM = @currentViews + @views
-	where IDCNHA = @houseID
+	where IDNHA = @houseID
 COMMIT TRAN 
 GO
 
