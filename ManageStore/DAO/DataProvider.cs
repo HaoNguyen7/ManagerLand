@@ -18,8 +18,7 @@ namespace ManageStore.DAO
             get { if (instance == null) instance = new DataProvider();return DataProvider.instance; }
             private set { DataProvider.instance = value; }
         }
-        //Thay doi ben fSwichCase nha, chon Demo hoac database finished de lam viec. Sau khi chon thi nhan thoat dau x mau do ben trai phia tren
-        private static string connectionSTR;// = @"Data Source=DESKTOP-4ATVFV8\MSSQLSERVER01;Initial Catalog=QLNHADAT_TEST;Integrated Security=True";
+
         public static string ConnectionSTR { get => connectionSTR; set => connectionSTR = value; }//ctrl + R + E
 
         public DataTable ExecuteQuery(string query, object[] parameter =null) //Truy van du lieu tu data base

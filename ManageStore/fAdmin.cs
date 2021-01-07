@@ -17,12 +17,6 @@ namespace ManageStore
     {
         BindingSource staffList = new BindingSource();
         BindingSource accountList = new BindingSource();
-        BindingSource customerList = new BindingSource();
-        BindingSource houseList = new BindingSource();
-        BindingSource ownerList = new BindingSource();
-        BindingSource commentList = new BindingSource();
-
-
 
         public Account loginAccount;
         public fAdmin()
@@ -31,18 +25,12 @@ namespace ManageStore
             InitializeComponent();
             Load();
             
-        }       
+        }
         void Load()
         {
             dtgvStaff.DataSource = staffList;
-            dtgvAccount.DataSource = accountList;
-            dtgvHouse.DataSource = houseList;
-            dtgvCustomer.DataSource = customerList;
-            dtgvOwner.DataSource = ownerList;
-            LoadListOwner();
+            dtgvAccount.DataSource = accountList;   
             LoadListStaff();
-            LoadListCustomer();
-            LoadListHouse();
             LoadAccount();
         }
         #region methods
@@ -120,18 +108,6 @@ namespace ManageStore
         void LoadListStaff()
         {
             staffList.DataSource = StaffDAO.Instance.GetListStaff();
-        }
-        void LoadListHouse()
-        {
-            houseList.DataSource = HouseDAO.Instance.GetListHouse();
-        }
-        void LoadListCustomer()
-        {
-            customerList.DataSource = CustomerDAO.Instance.GetListCustomer();
-        }
-        void LoadListOwner()
-        {
-            ownerList.DataSource = OwnerDAO.Instance.GetListOwner();
         }
         private void btnDisplayStaff_Click(object sender, EventArgs e)
         {

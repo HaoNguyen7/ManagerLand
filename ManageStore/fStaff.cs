@@ -14,35 +14,11 @@ namespace ManageStore
 {
     public partial class fStaff : Form
     {
-        BindingSource customerList = new BindingSource();
-        BindingSource houseList = new BindingSource();
-        BindingSource ownerList = new BindingSource();
         public fStaff()
         {
             InitializeComponent();
-            Load();
         }
-        void Load()
-        {
-            dtgvHouse.DataSource = houseList;
-            dtgvCustomer.DataSource = customerList;
-            dtgvOwner.DataSource = ownerList;
-            LoadListOwner();
-            LoadListCustomer();
-            LoadListHouse();
-        }
-        void LoadListHouse()
-        {
-            houseList.DataSource = HouseDAO.Instance.GetListHouse();
-        }
-        void LoadListCustomer()
-        {
-            customerList.DataSource = CustomerDAO.Instance.GetListCustomer();
-        }
-        void LoadListOwner()
-        {
-            ownerList.DataSource = OwnerDAO.Instance.GetListOwner();
-        }
+
         private void btnDisplayStaff_Click_1(object sender, EventArgs e)
         {
 
@@ -68,7 +44,7 @@ namespace ManageStore
             string query = "exec sp_TimNhaChoKhachHang";
            
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            dtgvHouse.DataSource = data;
+            dtgvCategory.DataSource = data;
         }
 
         private void dtgvCustomerRequirments_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -105,7 +81,7 @@ namespace ManageStore
                 tBoxCity.Text, tBoxRegion.Text, tBoxBranchID.Text};
 
             DataTable data = DataProvider.Instance.ExecuteParameterQuery(query, parameter);
-            dtgvHouse.DataSource = data;
+            dtgvCategory.DataSource = data;
         }
 
         private void tpHouseStaff_Click(object sender, EventArgs e)

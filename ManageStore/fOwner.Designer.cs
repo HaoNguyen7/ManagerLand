@@ -71,7 +71,7 @@ namespace ManageStore
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.dtgvHouse = new System.Windows.Forms.DataGridView();
+            this.dtgvCategory = new System.Windows.Forms.DataGridView();
             this.tcAdmin.SuspendLayout();
             this.tpHouse.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -89,7 +89,7 @@ namespace ManageStore
             this.panel35.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvHouse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -456,21 +456,21 @@ namespace ManageStore
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.dtgvHouse);
+            this.panel18.Controls.Add(this.dtgvCategory);
             this.panel18.Location = new System.Drawing.Point(6, 75);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(789, 650);
             this.panel18.TabIndex = 4;
             // 
-            // dtgvHouse
+            // dtgvCategory
             // 
-            this.dtgvHouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvHouse.Location = new System.Drawing.Point(4, 4);
-            this.dtgvHouse.Name = "dtgvHouse";
-            this.dtgvHouse.RowHeadersWidth = 51;
-            this.dtgvHouse.RowTemplate.Height = 24;
-            this.dtgvHouse.Size = new System.Drawing.Size(782, 636);
-            this.dtgvHouse.TabIndex = 0;
+            this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCategory.Location = new System.Drawing.Point(4, 4);
+            this.dtgvCategory.Name = "dtgvCategory";
+            this.dtgvCategory.RowHeadersWidth = 51;
+            this.dtgvCategory.RowTemplate.Height = 24;
+            this.dtgvCategory.Size = new System.Drawing.Size(782, 636);
+            this.dtgvCategory.TabIndex = 0;
             // 
             // fOwner
             // 
@@ -508,7 +508,7 @@ namespace ManageStore
             this.panel35.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvHouse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -557,6 +557,6 @@ namespace ManageStore
         private System.Windows.Forms.Button btnEditCategory;
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.DataGridView dtgvHouse;
+        private System.Windows.Forms.DataGridView dtgvCategory;
     }
 }
