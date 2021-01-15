@@ -12,18 +12,9 @@ namespace ManageStore.DAO
     public class DataProvider
     {
         private static DataProvider instance;
-<<<<<<< HEAD
-        private static string connectionSTR;// = @"Data Source=DESKTOP-4ATVFV8\MSSQLSERVER01;Initial Catalog=QLNHADAT_TEST;Integrated Security=True";
+        //Qua bên fSwitchCase sửa nha mọi người. Nếu sửa thì comment cái code lại rồi làm cái code mới cho mình để người sau khỏi mắc công lấy connection string.
+        private static string connectionSTR = "";// = @"Data Source=DESKTOP-4ATVFV8\MSSQLSERVER01;Initial Catalog=QLNHADAT_TEST;Integrated Security=True";
         
-=======
-
-<<<<<<< Updated upstream
-        private string connectionSTR = @"Data Source=KHOA\SQLEXPRESS;Initial Catalog = QLNHADAT; Integrated Security = True";
-=======
-        private string connectionSTR = @"Data Source=ADMIN;Initial Catalog=QLNHADAT;Integrated Security=True";
->>>>>>> Stashed changes
-
->>>>>>> parent of 348f433 (add crud house owner customer)
         public static DataProvider Instance { 
             get { if (instance == null) instance = new DataProvider();return DataProvider.instance; }
             private set { DataProvider.instance = value; }
