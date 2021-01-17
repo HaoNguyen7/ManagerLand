@@ -1,16 +1,29 @@
 USE [QLNHADAT]
 GO
 
-CREATE proc [dbo].[sp_update2]  @NhanVienID varchar(10), @Ten nvarchar(20)
+alter proc [dbo].[sp_update2] @houseID  varchar(10), @NhanVienID varchar(10)
 as
-begin
-	update NHANVIEN
-	set TENNV = @Ten
-	where IDNV = @NhanVienID
+begin tran
+	begin try
 
+		update NHANVIEN
+		set LUONGNV = 500
+		where IDNV = @NhanVienID
+		
+		update NHA
+		set TINHTRANG = 1
+		where IDNHA = @houseID
 
-	select *
-	from NHA
-	where IDNV = @NhanVienID
-end
-GO
+		print 'Cap nhat 1 nha ban duoc, tang luong thanh cong'
+
+	end try
+
+	begin catch	
+		print 'Loi he thong'
+		rollback tran
+	end catch
+commit tran
+
+exec sp_update2 '1', '1'
+
+drop proc sp_update2

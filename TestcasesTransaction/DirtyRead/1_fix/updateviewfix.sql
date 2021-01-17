@@ -2,7 +2,7 @@
 GO
 
 --T1
-alter proc [dbo].[sp_updateView_2_T1_FIX] @houseID varchar(10) = NULL, @views int = NULL
+create proc [dbo].[sp_updateView_2_T1_FIX] @houseID varchar(10) = NULL, @views int = NULL
 as
 begin tran
 	begin TRY
