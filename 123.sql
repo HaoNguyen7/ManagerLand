@@ -52,7 +52,8 @@ BEGIN
 END 
 go
 
-SELECT * FROM dbo.account
+use QLNHADAT
+SELECT * FROM NHATHUE
 
 SELECT * FROM dbo.account WHERE username='a'
 EXEC USP_Login 'a','1'

@@ -1,48 +1,84 @@
+﻿USE QLNHADAT
 --------------converson deadlock-----------
 -----------trans 1----------
-BEGIN TRANSACTION
-set tran isolation level SERIALIZABLE
-Select * from NHA
-WAITFOR DELAY '00:00:5';
-Insert into NHA
-([IDNHA],
-[IDCNHA],
-[IDCNHANH],
-[IDNV],
-[IDLOAINHA],
-[SOLUONGNHA],
-[NGAYDANG],
-[NGAYHETHANG],
-[TINHTRANG],
-[LUOTXEM],
-[DUONGNHA],
-[QUANNHA],
-[TPNHA] ,
-[KHUVUCNHA])
-VALUES
-('5', '2', '1', '1', '0', '4', '2019-05-01', NULL, '1', '10', '34 Nguyen Cong Tru', 'Quan 6', 'Tp Ho Chi Minh', 'Dong Nam Bo')
-COMMIT TRANSACTION
+go
+CREATE	proc sp_ThemNha_T1 @idNha varchar(10),@idChuNha varchar(10),@idChiNhanh varchar(10),@idNhanVien varchar(10),
+	@idLoaiNha varchar(10),@SoLuongNha int,@NgayDang datetime,@NgayHetHan datetime,@TinhTrang varchar(10),
+	@LuotXem bigint,@DuongNha varchar(10),@QuanNha varchar(10),@TPNha varchar(10),@KhuVucNha varchar(10)
 
+as
+BEGIN TRAN
+	BEGIN TRY
+		SET	TRAN ISOLATION	LEVEL SERIALIZABLE
+		IF(EXISTS(SELECT * FROM dbo.NHA WHERE IDNHA=@idNha))
+		BEGIN
+		    PRINT N'Tồn tại nhà!'
+		END
+		Select * from NHA
+		WAITFOR DELAY '00:00:10';
+        INSERT INTO dbo.NHA
+        VALUES
+		   (@idNha,
+		    @idChuNha,
+			@idChiNhanh,
+			@idNhanVien,
+			@idLoaiNha,
+			@SoLuongNha,
+			@NgayDang,
+			@NgayHetHan,
+			@TinhTrang,
+			@LuotXem,
+			@DuongNha,
+			@QuanNha,
+			@TPNha,
+			@KhuVucNha)
+	END	TRY
+	BEGIN CATCH
+			PRINT N'Lỗi hệ thống!'
+		ROLLBACK TRAN
+	END	CATCH
+COMMIT
+GO
+EXEC dbo.sp_ThemNha_T1 '22', '2', '1', '1', '0', '4', '2019-05-01', NULL, '1', '10', '34 Nguyen Cong Tru', 'Quan 6', 'Tp Ho Chi Minh', 'Dong Nam Bo'
+GO
+SELECT * FROM dbo.NHA
 -----------trans 2----------
-BEGIN TRANSACTION
-set tran isolation level SERIALIZABLE
-Select * from NHA
-WAITFOR DELAY '00:00:5';
-Insert into NHA
-([IDNHA],
-[IDCNHA],
-[IDCNHANH],
-[IDNV],
-[IDLOAINHA],
-[SOLUONGNHA],
-[NGAYDANG],
-[NGAYHETHANG],
-[TINHTRANG],
-[LUOTXEM],
-[DUONGNHA],
-[QUANNHA],
-[TPNHA] ,
-[KHUVUCNHA])
-VALUES
-('6', '1', '1', '1', '0', '4', '2019-03-02', NULL, '1', '10', '34 Nguyen Van Cu', 'Quan 5', 'Tp Ho Chi Minh', 'Dong Nam Bo')
-COMMIT TRANSACTION
+go
+CREATE	proc sp_ThemNha_T2 @idNha varchar(10),@idChuNha varchar(10),@idChiNhanh varchar(10),@idNhanVien varchar(10),
+	@idLoaiNha varchar(10),@SoLuongNha int,@NgayDang datetime,@NgayHetHan datetime,@TinhTrang varchar(10),
+	@LuotXem bigint,@DuongNha varchar(10),@QuanNha varchar(10),@TPNha varchar(10),@KhuVucNha varchar(10)
+as
+BEGIN TRAN
+	BEGIN TRY
+		SET	TRAN ISOLATION	LEVEL SERIALIZABLE
+		IF(EXISTS(SELECT * FROM dbo.NHA WHERE IDNHA=@idNha))
+		BEGIN
+		    PRINT N'Tồn tại nhà!'
+		END
+		Select * from NHA
+        INSERT INTO dbo.NHA
+        VALUES
+		   (@idNha,
+		    @idChuNha,
+			@idChiNhanh,
+			@idNhanVien,
+			@idLoaiNha,
+			@SoLuongNha,
+			@NgayDang,
+			@NgayHetHan,
+			@TinhTrang,
+			@LuotXem,
+			@DuongNha,
+			@QuanNha,
+			@TPNha,
+			@KhuVucNha)
+	END	TRY
+	BEGIN CATCH
+			PRINT N'Lỗi hệ thống!'
+		ROLLBACK TRAN
+	END	CATCH
+COMMIT
+GO
+EXEC dbo.sp_ThemNha_T2 '28', '1', '1', '1', '0', '4', '2019-03-02', NULL, '1', '10', '34 Nguyen Van Cu', 'Quan 5', 'Tp Ho Chi Minh', 'Dong Nam Bo'
+GO
+SELECT * FROM dbo.NHA

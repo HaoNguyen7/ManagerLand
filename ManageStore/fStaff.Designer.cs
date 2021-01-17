@@ -47,10 +47,10 @@ namespace ManageStore
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.numViews = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textHouseID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -137,6 +137,7 @@ namespace ManageStore
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numViews)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -342,19 +343,29 @@ namespace ManageStore
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox4);
+            this.panel5.Controls.Add(this.numViews);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Location = new System.Drawing.Point(3, 49);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(432, 40);
             this.panel5.TabIndex = 4;
             // 
-            // textBox4
+            // numViews
             // 
-            this.textBox4.Location = new System.Drawing.Point(119, 8);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(291, 22);
-            this.textBox4.TabIndex = 1;
+            this.numViews.Location = new System.Drawing.Point(120, 8);
+            this.numViews.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numViews.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numViews.Name = "numViews";
+            this.numViews.Size = new System.Drawing.Size(290, 22);
+            this.numViews.TabIndex = 30;
             // 
             // label3
             // 
@@ -367,19 +378,19 @@ namespace ManageStore
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.textHouseID);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(432, 40);
             this.panel4.TabIndex = 3;
             // 
-            // textBox2
+            // textHouseID
             // 
-            this.textBox2.Location = new System.Drawing.Point(119, 8);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 22);
-            this.textBox2.TabIndex = 1;
+            this.textHouseID.Location = new System.Drawing.Point(119, 8);
+            this.textHouseID.Name = "textHouseID";
+            this.textHouseID.Size = new System.Drawing.Size(291, 22);
+            this.textHouseID.TabIndex = 1;
             // 
             // label2
             // 
@@ -398,6 +409,7 @@ namespace ManageStore
             this.btnEditCategory.TabIndex = 2;
             this.btnEditCategory.Text = "Sửa";
             this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // panel15
             // 
@@ -1091,6 +1103,7 @@ namespace ManageStore
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numViews)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel15.ResumeLayout(false);
@@ -1182,10 +1195,9 @@ namespace ManageStore
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textHouseID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEditCategory;
         private System.Windows.Forms.Panel panel6;
@@ -1248,5 +1260,6 @@ namespace ManageStore
         private System.Windows.Forms.ComboBox cBoxHousesType;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpReviewHouse;
+        private System.Windows.Forms.NumericUpDown numViews;
     }
 }

@@ -88,5 +88,133 @@ namespace ManageStore
         {
 
         }
+
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            fSwitchCase switchCase = new fSwitchCase();
+            switchCase.ShowDialog();
+            if(switchCase.TransactionOwner == "khoaminhi") //Lua chon nguoi viet 2 tinh huống
+            {
+                /* Lua chon 1 trong 2 tinh huong da viet (Lost update) */
+                if (switchCase.TransactionSituation == "1") 
+                {
+                    if (textHouseID.Text == "" || numViews.Value == 0) return;
+                    //demo lostupdate
+                    if (switchCase.Demo == "T2") //Lua chon transaction
+                    {
+                        string query = "exec sp_updateView_T2  @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
+
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
+
+                        string query2 = "exec sp_TimNhaChoKhachHang"; //Phần nay chỉ để sô kết quả ra thôi.
+
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+                    else if (switchCase.Demo == "T1")
+                    {
+                        string query = "exec sp_updateView_T1  @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
+
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
+
+                        string query2 = "exec sp_TimNhaChoKhachHang";
+
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+
+                    /* Giải quyết lost update. Chọn database completed*/
+                    else if (switchCase.Completed == "T2") //Lua chon transaction. Sử dụng Completed hay Demo cũng được. Nhưng sử dụng Completed để cho biết là database hoàn chỉnh
+                    {
+                        string query = "exec sp_updateView_FIX_T2  @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
+
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
+
+                        string query2 = "exec sp_TimNhaChoKhachHang";
+
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+                    else if (switchCase.Completed == "T1")
+                    {
+                        string query = "exec sp_updateView_FIX_T1 @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
+
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
+
+                        string query2 = "exec sp_TimNhaChoKhachHang";
+
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+                }
+
+               
+                //#### Dirty read, đọc views âm ####//
+                if (switchCase.TransactionSituation == "2")
+                {
+                    if (switchCase.Demo == "T2") //Lua chon transaction
+                    {
+                        if (textHouseID.Text == "") return;
+                        string query = "exec sp_getView  @houseID";
+                        object[] parameter = { textHouseID.Text};
+
+                        DataTable data = DataProvider.Instance.ExecuteParameterQuery(query, parameter);
+                    
+                        dtgvCategory.DataSource = data;
+                    }
+                    else if (switchCase.Demo == "T1")
+                    {
+                        if (textHouseID.Text == "" || numViews.Value == 0) return;
+                        string query = "exec sp_updateView_2_T1  @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
+
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
+
+                        string query2 = "exec sp_TimNhaChoKhachHang";
+
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+
+                    //## sửa lỗi dirty read ##//
+                    else if (switchCase.Completed == "T2") //Lua chon transaction
+                    {
+                        if (textHouseID.Text == "") return;
+                        string query = "exec sp_getView_FIX  @houseID";
+                        object[] parameter = { textHouseID.Text };
+
+                        DataTable data = DataProvider.Instance.ExecuteParameterQuery(query, parameter);
+
+                        dtgvCategory.DataSource = data;
+                    }
+                    else if (switchCase.Completed == "T1")
+                    {
+                        if (textHouseID.Text == "" || numViews.Value == 0) return;
+                        string query = "exec sp_updateView_2_T1_FIX  @houseID, @views";
+                        object[] parameter = { textHouseID.Text, numViews.Value };
+
+                        DataProvider.Instance.ExecuteParameterNonQuery(query, parameter);
+
+                        string query2 = "exec sp_TimNhaChoKhachHang";
+
+                        DataTable data = DataProvider.Instance.ExecuteQuery(query2);
+                        dtgvCategory.DataSource = data;
+                    }
+                }
+            }
+
+
+            if(switchCase.TransactionOwner == "hao")
+            {
+
+            }
+
+            switchCase.Close();
+        }
     }
 }

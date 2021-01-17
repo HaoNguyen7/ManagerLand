@@ -3,16 +3,16 @@ GO
 
 
 --T2
-create proc [dbo].[sp_updateView_T2] @houseID varchar(10) = NULL, @views int = NULL
+alter proc [dbo].[sp_updateView_T2] @houseID varchar(10) = NULL, @views int = NULL
 as
-begin
+BEGIN TRAN 
 	declare @currentViews int
 	set @currentViews = (select LUOTXEM from NHA where IDNHA = @houseID)
 
 	update NHA
 	set LUOTXEM = @currentViews + @views
-	where IDCNHA = @houseID
-end
+	where IDNHA = @houseID
+COMMIT TRAN 
 GO
 
 select * from NHA
